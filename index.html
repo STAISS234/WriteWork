@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="purple">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WriteWork — Sign In</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdjM2FlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNhODU1ZjciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoaW5lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4yNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE2IiBmaWxsPSJ1cmwoI2JnKSIvPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSIzMiIgcng9IjE2IiBmaWxsPSJ1cmwoI3NoaW5lKSIvPgogIDx0ZXh0IHg9IjMyIiB5PSI0NCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMzQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iYXV0byIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5XPC90ZXh0PgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iMTQiIHI9IjQiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI3IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+[data-accent="purple"]  { --accent:#7c3aed; --accent2:#a855f7; --glow:rgba(124,58,237,0.28); --border:rgba(124,58,237,0.15); }
+[data-accent="blue"]    { --accent:#2563eb; --accent2:#60a5fa; --glow:rgba(37,99,235,0.28);  --border:rgba(37,99,235,0.15); }
+[data-accent="teal"]    { --accent:#0d9488; --accent2:#2dd4bf; --glow:rgba(13,148,136,0.28); --border:rgba(13,148,136,0.15); }
+[data-accent="rose"]    { --accent:#e11d48; --accent2:#fb7185; --glow:rgba(225,29,72,0.28);  --border:rgba(225,29,72,0.15); }
+[data-accent="amber"]   { --accent:#d97706; --accent2:#f59e0b; --glow:rgba(217,119,6,0.28);  --border:rgba(217,119,6,0.15); }
+
+[data-theme="dark"] {
+  --ink:#f0eeff; --ink2:#0d0d14;
+  --surface:#111118; --surface2:#1a1a2e;
+  --card:#1c1c2e; --text:#e0dff8; --muted:#8887a8;
+  --input-bg:#111118; --input-focus:#1a1a2e;
+  --blob1:rgba(124,58,237,0.14); --blob2:rgba(14,165,233,0.09); --blob3:rgba(16,185,129,0.07);
+}
+[data-theme="light"] {
+  --ink:#0d0d14; --ink2:#1a1a2e;
+  --surface:#f5f4f0; --surface2:#eeecf8;
+  --card:#ffffff; --text:#1e1b4b; --muted:#6b7280;
+  --input-bg:#f5f4f0; --input-focus:#fff;
+  --blob1:rgba(124,58,237,0.07); --blob2:rgba(14,165,233,0.05); --blob3:rgba(16,185,129,0.04);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);min-height:100vh;overflow:hidden;transition:background .35s,color .35s;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:99px;}
+
+/* Blobs */
+.blob{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;will-change:transform;}
+.blob1{width:700px;height:700px;background:var(--blob1);top:-20%;right:-10%;animation:blobFloat1 18s ease-in-out infinite;}
+.blob2{width:500px;height:500px;background:var(--blob2);bottom:-10%;left:-8%;animation:blobFloat2 22s ease-in-out infinite;}
+.blob3{width:400px;height:400px;background:var(--blob3);top:40%;left:30%;animation:blobFloat3 26s ease-in-out infinite;}
+@keyframes blobFloat1{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(-60px,40px) scale(1.08);}66%{transform:translate(40px,-30px) scale(.95);}}
+@keyframes blobFloat2{0%,100%{transform:translate(0,0) scale(1);}40%{transform:translate(50px,-60px) scale(1.1);}70%{transform:translate(-30px,30px) scale(.92);}}
+@keyframes blobFloat3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(70px,40px) scale(1.05);}}
+#bg-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;}
+
+/* Layout */
+.auth-screen{display:flex;min-height:100vh;position:relative;z-index:1;}
+
+/* Left panel */
+.auth-left{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px;position:relative;overflow:hidden;}
+.auth-left-inner{position:relative;z-index:1;max-width:440px;animation:leftSlide .7s cubic-bezier(.22,.68,0,1.2) .1s both;}
+@keyframes leftSlide{from{opacity:0;transform:translateX(-30px);}to{opacity:1;transform:translateX(0);}}
+
+.auth-brand{display:flex;align-items:center;gap:14px;margin-bottom:44px;}
+.auth-brand-icon{
+  width:54px;height:54px;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:15px;display:flex;align-items:center;justify-content:center;
+  font-size:1.45rem;color:#fff;box-shadow:0 8px 28px var(--glow);
+  transition:transform .3s cubic-bezier(.22,.68,0,1.4);
+  animation:iconBounce .8s cubic-bezier(.22,.68,0,1.6) .3s both;
+}
+.auth-brand-icon:hover{transform:rotate(18deg) scale(1.12);}
+@keyframes iconBounce{from{opacity:0;transform:scale(0) rotate(-15deg);}to{opacity:1;transform:scale(1) rotate(0);}}
+.auth-brand-name{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-1px;}
+
+.auth-tagline{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;color:var(--ink);line-height:1.2;letter-spacing:-1.5px;margin-bottom:16px;}
+.gradient-text{
+  background:linear-gradient(135deg,var(--accent2),#e879f9,var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-size:200% auto;animation:gradShift 4s ease-in-out infinite;
+}
+@keyframes gradShift{0%,100%{background-position:0%}50%{background-position:100%}}
+.auth-desc{color:var(--muted);font-size:.92rem;line-height:1.75;max-width:380px;margin-bottom:34px;}
+
+.auth-features{display:flex;flex-direction:column;gap:13px;margin-bottom:36px;}
+.auth-feature{
+  display:flex;align-items:center;gap:13px;
+  color:var(--text);font-size:.87rem;font-weight:500;
+  animation:featIn .5s cubic-bezier(.22,.68,0,1.2) both;
+}
+.auth-feature:nth-child(1){animation-delay:.5s}
+.auth-feature:nth-child(2){animation-delay:.65s}
+.auth-feature:nth-child(3){animation-delay:.8s}
+.auth-feature:nth-child(4){animation-delay:.95s}
+@keyframes featIn{from{opacity:0;transform:translateX(-14px);}to{opacity:1;transform:translateX(0);}}
+.auth-feature-dot{
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.82rem;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.2);
+  transition:transform .25s cubic-bezier(.22,.68,0,1.4);
+}
+.auth-feature:hover .auth-feature-dot{transform:scale(1.15) rotate(-8deg);}
+.f1{background:linear-gradient(135deg,var(--accent),var(--accent2));}
+.f2{background:linear-gradient(135deg,#059669,#10b981);}
+.f3{background:linear-gradient(135deg,#d97706,#f59e0b);}
+.f4{background:linear-gradient(135deg,#0284c7,#0ea5e9);}
+
+.auth-stats{display:flex;gap:24px;padding:18px 0;border-top:1px solid var(--border);}
+.auth-stat-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--accent2);line-height:1;margin-bottom:2px;}
+.auth-stat-label{font-size:.72rem;color:var(--muted);font-weight:600;letter-spacing:.3px;}
+
+/* Right panel */
+.auth-right{
+  width:500px;display:flex;align-items:center;justify-content:center;
+  padding:48px 52px;background:var(--card);border-left:1px solid var(--border);
+  position:relative;flex-shrink:0;overflow-y:auto;max-height:100vh;
+  animation:rightSlide .7s cubic-bezier(.22,.68,0,1.2) .15s both;
+}
+@keyframes rightSlide{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
+
+.panel-controls{position:absolute;top:18px;right:18px;display:flex;gap:6px;align-items:center;z-index:10;}
+.ctrl-btn{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--surface2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:.78rem;cursor:pointer;transition:all .2s;
+}
+.ctrl-btn:hover{color:var(--accent);border-color:var(--accent);}
+.ctrl-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.accent-picker-sm{display:flex;gap:4px;padding:5px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:99px;}
+.adot{width:14px;height:14px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.adot:hover{transform:scale(1.3);}
+.adot.active{border-color:var(--text);transform:scale(1.15);}
+
+.auth-form-wrap{width:100%;}
+
+/* ===================== ROLE PICKER ===================== */
+#rolePicker{animation:fadeUp .45s cubic-bezier(.22,.68,0,1.2) both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+.role-heading{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ink);letter-spacing:-.5px;margin-bottom:6px;text-align:center;}
+.role-sub{font-size:.85rem;color:var(--muted);text-align:center;margin-bottom:28px;line-height:1.6;}
+
+.role-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px;}
+.role-card{
+  border:2px solid var(--border);border-radius:18px;padding:24px 18px 20px;
+  cursor:pointer;transition:all .25s cubic-bezier(.22,.68,0,1.2);
+  background:var(--surface2);text-align:center;position:relative;overflow:hidden;
+}
+.role-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  opacity:0;transition:opacity .25s;border-radius:16px;pointer-events:none;
+}
+.role-card:hover{border-color:var(--accent2);transform:translateY(-4px);box-shadow:0 12px 32px var(--glow);}
+.role-card:hover::before{opacity:.06;}
+.role-card.picked{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow),0 12px 32px var(--glow);transform:translateY(-4px);}
+.role-card.picked::before{opacity:.08;}
+
+.role-icon{
+  width:56px;height:56px;border-radius:16px;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:#fff;transition:transform .3s cubic-bezier(.22,.68,0,1.4);
+}
+.role-card:hover .role-icon,.role-card.picked .role-icon{transform:scale(1.12) rotate(-8deg);}
+.role-icon-writer{background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 6px 20px var(--glow);}
+.role-icon-client{background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 6px 20px rgba(5,150,105,.35);}
+
+.role-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:5px;position:relative;z-index:1;}
+.role-desc{font-size:.75rem;color:var(--muted);line-height:1.55;position:relative;z-index:1;}
+
+.role-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.65rem;font-weight:700;padding:3px 9px;border-radius:99px;margin-top:8px;
+  position:relative;z-index:1;
+}
+.pill-writer{background:rgba(124,58,237,.12);color:var(--accent);}
+.pill-client{background:rgba(5,150,105,.12);color:#059669;}
+
+.role-check{
+  position:absolute;top:12px;right:12px;width:22px;height:22px;
+  border-radius:50%;background:var(--accent);color:#fff;
+  font-size:.65rem;display:none;align-items:center;justify-content:center;
+  animation:popIn .25s cubic-bezier(.22,.68,0,1.6) both;
+}
+@keyframes popIn{from{transform:scale(0);}to{transform:scale(1);}}
+.role-card.picked .role-check{display:flex;}
+
+.btn-continue{
+  width:100%;padding:14px;margin-top:16px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;border:none;border-radius:13px;
+  font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:700;
+  cursor:pointer;transition:all .22s;box-shadow:0 6px 20px var(--glow);
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  position:relative;overflow:hidden;opacity:.5;pointer-events:none;
+}
+.btn-continue.ready{opacity:1;pointer-events:all;}
+.btn-continue::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:transform .5s ease;pointer-events:none;}
+.btn-continue:hover::before{transform:translateX(100%);}
+.btn-continue:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--glow);}
+.btn-continue:active{transform:scale(.97);}
+
+/* ===================== FORM PANELS ===================== */
+#formPanel{display:none;animation:fadeUp .4s cubic-bezier(.22,.68,0,1.2) both;}
+
+/* Back button */
+.back-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.8rem;font-weight:600;color:var(--muted);
+  background:none;border:none;cursor:pointer;padding:0;margin-bottom:18px;
+  transition:color .2s;font-family:'DM Sans',sans-serif;
+}
+.back-btn:hover{color:var(--accent);}
+
+/* Role badge shown in form */
+.active-role-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.75rem;font-weight:700;padding:5px 12px;border-radius:99px;margin-bottom:18px;
+}
+.badge-writer{background:rgba(124,58,237,.12);color:var(--accent);border:1px solid rgba(124,58,237,.2);}
+.badge-client{background:rgba(5,150,105,.12);color:#059669;border:1px solid rgba(5,150,105,.2);}
+
+/* Tabs */
+.auth-tabs{display:flex;gap:0;margin-bottom:22px;background:var(--surface2);border-radius:12px;padding:4px;border:1px solid var(--border);}
+.auth-tab{flex:1;padding:10px;border:none;border-radius:9px;background:transparent;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .22s;}
+.auth-tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 12px var(--glow);}
+
+.auth-form-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ink);letter-spacing:-.5px;margin-bottom:4px;}
+.auth-form-sub{color:var(--muted);font-size:.85rem;margin-bottom:20px;line-height:1.5;}
+
+/* Fields */
+.form-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.form-field label{font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
+.field-wrap{position:relative;display:flex;align-items:center;}
+.field-wrap .fi{position:absolute;left:14px;color:var(--muted);font-size:.82rem;pointer-events:none;transition:color .2s;}
+.field-wrap:focus-within .fi{color:var(--accent);}
+.field-wrap input,.field-wrap select{
+  width:100%;padding:12px 14px 12px 40px;
+  border:1.5px solid var(--border);border-radius:12px;
+  font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--text);
+  background:var(--input-bg);outline:none;transition:all .22s;-webkit-appearance:none;
+}
+.field-wrap input:focus,.field-wrap select:focus{border-color:var(--accent);background:var(--input-focus);box-shadow:0 0 0 3px var(--glow);}
+.field-wrap input::placeholder{color:var(--muted);opacity:.7;}
+.eye-toggle{position:absolute;right:14px;color:var(--muted);font-size:.82rem;cursor:pointer;transition:color .2s;}
+.eye-toggle:hover{color:var(--accent);}
+
+/* Password strength */
+.pwd-strength{margin-top:6px;display:none;}
+.pwd-bar{height:3px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:4px;}
+.pwd-fill{height:100%;border-radius:99px;transition:width .4s,background .4s;width:0%;}
+.pwd-text{font-size:.7rem;color:var(--muted);font-weight:600;}
+
+.field-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.remember-me{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted);cursor:pointer;}
+.remember-me input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);cursor:pointer;}
+.forgot-link{font-size:.82rem;color:var(--accent);font-weight:600;cursor:pointer;text-decoration:none;}
+.forgot-link:hover{text-decoration:underline;}
+
+/* ── SUBTLE NOISE TEXTURE ON AUTH RIGHT ────────────────── */
+.auth-right::after {
+  content:''; position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none; opacity:.4; z-index:0;
+}
+.auth-form-wrap { position:relative; z-index:1; }
+.panel-controls { z-index:2; }
+
+/* ── ANIMATED INPUT LABEL FLOAT ────────────────────────── */
+.form-field label { transition:color .2s; }
+.field-wrap:focus-within + .form-field label,
+.form-field:focus-within label { color:var(--accent); }
+
+/* ── IMPROVED ROLE CARDS ────────────────────────────────── */
+.role-cards { gap:16px; }
+.role-card { box-shadow:0 2px 12px rgba(0,0,0,.06); }
+[data-theme="dark"] .role-card { box-shadow:0 4px 20px rgba(0,0,0,.25); }
+
+/* ── AUTH LEFT GRADIENT BORDER ─────────────────────────── */
+.auth-left::after {
+  content:''; position:absolute; right:0; top:10%; bottom:10%;
+  width:1px;
+  background:linear-gradient(to bottom, transparent, var(--accent2), var(--accent), transparent);
+  opacity:.25;
+}
+
+
+/* ── STEP PROGRESS ─────────────────────────────────────── */
+.step-progress-wrap {
+  display:flex; flex-direction:column; align-items:center; margin-bottom:24px;
+}
+.step-progress {
+  display:flex; align-items:center; gap:0; margin-bottom:6px;
+}
+.step-dot {
+  width:30px; height:30px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem; font-weight:800; z-index:1; position:relative;
+  transition:all .3s cubic-bezier(.22,.68,0,1.2);
+  background:var(--surface2); border:2px solid var(--border); color:var(--muted);
+}
+.step-dot.done  { background:linear-gradient(135deg,var(--accent),var(--accent2)); border-color:transparent; color:#fff; box-shadow:0 4px 14px var(--glow); }
+.step-dot.active{ background:var(--card); border-color:var(--accent); color:var(--accent); box-shadow:0 0 0 4px var(--glow); }
+.step-line {
+  width:40px; height:2px; background:var(--border); transition:background .4s;
+}
+.step-line.done { background:linear-gradient(90deg,var(--accent),var(--accent2)); }
+.step-labels { display:flex; align-items:center; gap:0; }
+.step-label { font-size:.62rem; font-weight:700; color:var(--muted); width:30px; text-align:center; letter-spacing:.2px; white-space:nowrap; }
+.step-label-gap { width:40px; }
+.step-label.active { color:var(--accent); }
+.step-label.done { color:var(--accent); }
+
+/* ── AUTH LEFT PANEL IMPROVEMENTS ─────────────────────── */
+.auth-left { backdrop-filter:blur(8px); }
+
+/* ── GLASSMORPHISM LOGIN PANEL ─────────────────────────── */
+.auth-right {
+  backdrop-filter:blur(28px) !important;
+  -webkit-backdrop-filter:blur(28px) !important;
+}
+[data-theme="dark"] .auth-right {
+  background:rgba(28,28,46,0.88) !important;
+}
+[data-theme="light"] .auth-right {
+  background:rgba(255,255,255,0.9) !important;
+}
+
+
+.btn-auth{
+  width:100%;padding:13px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;border:none;border-radius:13px;
+  font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;
+  cursor:pointer;transition:all .22s;box-shadow:0 6px 20px var(--glow);
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  position:relative;overflow:hidden;
+}
+.btn-auth::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:transform .5s ease;pointer-events:none;}
+.btn-auth:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--glow);}
+.btn-auth:hover::before{transform:translateX(100%);}
+.btn-auth:active{transform:scale(.97);}
+.btn-auth:disabled{opacity:.65;cursor:not-allowed;transform:none;}
+
+.auth-divider{display:flex;align-items:center;gap:14px;margin:16px 0;color:var(--muted);font-size:.78rem;}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.auth-msg{font-size:.82rem;font-weight:600;padding:10px 14px;border-radius:10px;margin-top:10px;display:none;animation:msgIn .25s ease both;}
+@keyframes msgIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+.auth-msg.err{background:rgba(244,63,94,0.08);color:#f43f5e;border:1px solid rgba(244,63,94,0.2);display:flex;align-items:center;gap:7px;}
+.auth-msg.ok{background:rgba(16,185,129,0.08);color:#059669;border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;gap:7px;}
+
+.auth-toggle{text-align:center;font-size:.84rem;color:var(--muted);margin-top:14px;}
+.auth-toggle a{color:var(--accent);font-weight:600;cursor:pointer;text-decoration:none;}
+.auth-toggle a:hover{text-decoration:underline;}
+
+.hidden{display:none!important;}
+
+/* Redirect overlay */
+#redirectOverlay{display:none;position:fixed;inset:0;z-index:9999;background:var(--surface);flex-direction:column;align-items:center;justify-content:center;gap:20px;pointer-events:none;}
+#redirectOverlay.show{pointer-events:all;}
+#redirectOverlay.show{display:flex;animation:fadeIn .4s ease both;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.redirect-icon{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:#fff;box-shadow:0 12px 32px var(--glow);animation:iconPulse 1.2s ease-in-out infinite;}
+@keyframes iconPulse{0%,100%{box-shadow:0 12px 32px var(--glow);}50%{box-shadow:0 12px 48px var(--glow),0 0 0 12px rgba(124,58,237,0.08);}}
+.redirect-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);text-align:center;}
+.redirect-sub{font-size:.88rem;color:var(--muted);}
+.redirect-bar-wrap{width:200px;height:3px;background:var(--border);border-radius:99px;overflow:hidden;}
+.redirect-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;width:0%;animation:loadBar 1.2s cubic-bezier(.22,.68,0,1.2) .3s both;}
+@keyframes loadBar{from{width:0%;}to{width:100%;}}
+
+.spin{display:inline-block;animation:spin .6s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+
+@media(max-width:920px){.auth-left{display:none;}.auth-right{width:100%;border-left:none;padding:40px 28px;}}
+@media(max-width:480px){.auth-right{padding:32px 18px;}.auth-form-title{font-size:1.4rem;}.role-cards{grid-template-columns:1fr 1fr;gap:10px;}}
+
+/* ===================== FORGOT PASSWORD MODAL ===================== */
+#forgotModal{display:none;position:fixed;inset:0;z-index:9998;align-items:center;justify-content:center;padding:20px;pointer-events:none;}
+#forgotModal.show{display:flex;pointer-events:all;}
+.forgot-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);cursor:pointer;}
+.forgot-box{
+  position:relative;z-index:1;background:var(--card);border:1px solid var(--border);
+  border-radius:22px;padding:36px 32px;width:100%;max-width:400px;
+  box-shadow:0 24px 64px rgba(0,0,0,.4);
+  animation:fadeUp .35s cubic-bezier(.22,.68,0,1.2) both;
+}
+.forgot-box h3{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:6px;letter-spacing:-.4px;}
+.forgot-box p{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:22px;}
+.forgot-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;cursor:pointer;transition:all .2s;}
+.forgot-close:hover{color:var(--accent);border-color:var(--accent);}
+.forgot-result{margin-top:14px;padding:14px 16px;border-radius:12px;font-size:.84rem;font-weight:600;display:none;line-height:1.6;}
+.forgot-result.found{background:rgba(16,185,129,0.08);color:#059669;border:1px solid rgba(16,185,129,0.2);display:block;}
+.forgot-result.notfound{background:rgba(244,63,94,0.08);color:#f43f5e;border:1px solid rgba(244,63,94,0.2);display:block;}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<!-- Redirect overlay -->
+<div id="redirectOverlay">
+  <div class="redirect-icon" id="redirectIcon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+  <div class="redirect-title" id="redirectTitle">Welcome to WriteWork! ✨</div>
+  <div class="redirect-sub" id="redirectSub">Loading your workspace…</div>
+  <div class="redirect-bar-wrap"><div class="redirect-bar"></div></div>
+</div>
+
+<div class="auth-screen">
+
+  <!-- LEFT — Branding (dynamic based on role) -->
+  <div class="auth-left">
+    <div class="auth-left-inner">
+
+      <div class="auth-brand">
+        <div class="auth-brand-icon"><i class="fa-solid fa-feather-pointed" id="brandIcon"></i></div>
+        <div class="auth-brand-name">WriteWork</div>
+      </div>
+
+      <!-- Writer branding (default) -->
+      <div id="leftWriter">
+        <div class="auth-tagline">Write. Earn.<br><span class="gradient-text">Grow.</span></div>
+        <p class="auth-desc">Your all-in-one platform for freelance writing jobs, earnings tracking, and career growth — built for writers in Kenya and beyond.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><div class="auth-feature-dot f1"><i class="fa-solid fa-briefcase"></i></div>Browse &amp; apply to paid writing jobs instantly</div>
+          <div class="auth-feature"><div class="auth-feature-dot f2"><i class="fa-solid fa-wallet"></i></div>Track your USD earnings with a built-in wallet</div>
+          <div class="auth-feature"><div class="auth-feature-dot f3"><i class="fa-solid fa-chart-line"></i></div>Monitor your performance on a live dashboard</div>
+          <div class="auth-feature"><div class="auth-feature-dot f4"><i class="fa-solid fa-wand-magic-sparkles"></i></div>Generate content instantly with AI — powered by Claude</div>
+        </div>
+        <div class="auth-stats">
+          <div><div class="auth-stat-num">15+</div><div class="auth-stat-label">Active Jobs</div></div>
+          <div><div class="auth-stat-num">$10</div><div class="auth-stat-label">Top Earner</div></div>
+          <div><div class="auth-stat-num">AI</div><div class="auth-stat-label">Powered Writing</div></div>
+        </div>
+      </div>
+
+      <!-- Client branding (shown after picking client) -->
+      <div id="leftClient" style="display:none;">
+        <div class="auth-tagline">Post. Manage.<br><span class="gradient-text">Deliver.</span></div>
+        <p class="auth-desc">Your dedicated client portal for sourcing top freelance writing talent, managing projects, and receiving polished content — on time, every time.</p>
+        <div class="auth-features">
+          <div class="auth-feature"><div class="auth-feature-dot f1"><i class="fa-solid fa-circle-plus"></i></div>Post jobs with full briefs and custom requirements</div>
+          <div class="auth-feature"><div class="auth-feature-dot f2"><i class="fa-solid fa-users"></i></div>Review applicants and hand-pick your writers</div>
+          <div class="auth-feature"><div class="auth-feature-dot f3"><i class="fa-solid fa-file-lines"></i></div>Receive, review and approve submissions in one place</div>
+          <div class="auth-feature"><div class="auth-feature-dot f4"><i class="fa-solid fa-chart-pie"></i></div>Track budgets, spending and project progress live</div>
+        </div>
+        <div class="auth-stats">
+          <div><div class="auth-stat-num">15+</div><div class="auth-stat-label">Job Categories</div></div>
+          <div><div class="auth-stat-num">24h</div><div class="auth-stat-label">Avg Turnaround</div></div>
+          <div><div class="auth-stat-num">100%</div><div class="auth-stat-label">Satisfaction</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT — Form -->
+  <div class="auth-right">
+
+    <div class="panel-controls">
+      <div class="accent-picker-sm">
+        <div class="adot active" style="background:#7c3aed;" onclick="setAccent('purple',this)"></div>
+        <div class="adot" style="background:#2563eb;" onclick="setAccent('blue',this)"></div>
+        <div class="adot" style="background:#0d9488;" onclick="setAccent('teal',this)"></div>
+        <div class="adot" style="background:#e11d48;" onclick="setAccent('rose',this)"></div>
+        <div class="adot" style="background:#d97706;" onclick="setAccent('amber',this)"></div>
+      </div>
+      <button class="ctrl-btn" id="lightBtn" onclick="setTheme('light')" title="Light mode"><i class="fa-solid fa-sun"></i></button>
+      <button class="ctrl-btn active" id="darkBtn" onclick="setTheme('dark')" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
+    </div>
+
+    <div class="auth-form-wrap">
+
+      <!-- ===================== STEP 1: ROLE PICKER ===================== -->
+      <div id="rolePicker">
+        <div class="step-progress-wrap" id="stepProgressWrap">
+          <div class="step-progress">
+            <div class="step-dot active" id="step1dot">1</div>
+            <div class="step-line" id="stepLine1"></div>
+            <div class="step-dot" id="step2dot">2</div>
+          </div>
+          <div class="step-labels">
+            <div class="step-label active" id="step1lbl">Choose Role</div>
+            <div class="step-label-gap"></div>
+            <div class="step-label" id="step2lbl">Sign In</div>
+          </div>
+        </div>
+        <div class="role-heading">Welcome to WriteWork 👋</div>
+        <div class="role-sub">Choose how you'd like to use the platform to get started.</div>
+
+        <div class="role-cards">
+          <!-- Writer card -->
+          <div class="role-card" id="cardWriter" onclick="pickRole('writer')">
+            <div class="role-check"><i class="fa-solid fa-check"></i></div>
+            <div class="role-icon role-icon-writer"><i class="fa-solid fa-pen-nib"></i></div>
+            <div class="role-title">I'm a Writer</div>
+            <div class="role-desc">Browse jobs, apply, write content and get paid.</div>
+            <div class="role-pill pill-writer"><i class="fa-solid fa-feather"></i> Freelancer</div>
+          </div>
+          <!-- Client card -->
+          <div class="role-card" id="cardClient" onclick="pickRole('client')">
+            <div class="role-check"><i class="fa-solid fa-check"></i></div>
+            <div class="role-icon role-icon-client"><i class="fa-solid fa-building"></i></div>
+            <div class="role-title">I'm a Client</div>
+            <div class="role-desc">Post jobs, manage writers and receive content.</div>
+            <div class="role-pill pill-client"><i class="fa-solid fa-briefcase"></i> Employer</div>
+          </div>
+        </div>
+
+        <button class="btn-continue" id="btnContinue" onclick="proceedToForm()">
+          <i class="fa-solid fa-arrow-right"></i> Continue
+        </button>
+      </div>
+
+      <!-- ===================== STEP 2: LOGIN / SIGNUP FORM ===================== -->
+      <div id="formPanel">
+
+        <button class="back-btn" onclick="goBack()">
+          <i class="fa-solid fa-arrow-left"></i> Change role
+        </button>
+
+        <!-- Dynamic role badge -->
+        <div id="roleBadge" class="active-role-badge badge-writer">
+          <i class="fa-solid fa-pen-nib"></i> Signing in as Writer
+        </div>
+
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+          <button class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+        </div>
+
+        <!-- ===== LOGIN ===== -->
+        <div id="loginPanel">
+          <div class="auth-form-title" id="loginTitle">Welcome back 👋</div>
+          <div class="auth-form-sub" id="loginSub">Sign in to access your writing dashboard</div>
+
+          <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-field">
+              <label>Username</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-user fi"></i>
+                <input type="text" id="loginUsername" placeholder="Enter your username" required autocomplete="username">
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Password</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-lock fi"></i>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+                <i class="fa-solid fa-eye eye-toggle" onclick="togglePwd('loginPassword',this)"></i>
+              </div>
+            </div>
+            <div class="field-row">
+              <label class="remember-me"><input type="checkbox" id="rememberMe"> Remember me</label>
+              <a class="forgot-link" onclick="openForgotModal()">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn-auth" id="loginBtn">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+            </button>
+            <div id="loginMsg" class="auth-msg"></div>
+          </form>
+
+          <div class="auth-divider">or</div>
+          <div class="auth-toggle">Don't have an account? <a onclick="switchTab('signup')">Create one →</a></div>
+        </div>
+
+        <!-- ===== SIGNUP ===== -->
+        <div id="signupPanel" class="hidden">
+          <div class="auth-form-title" id="signupTitle">Create account ✍️</div>
+          <div class="auth-form-sub" id="signupSub">Join WriteWork and start earning today</div>
+
+          <form id="signupForm" onsubmit="handleSignup(event)">
+
+            <!-- Client-only field -->
+            <div class="form-field hidden" id="companyField">
+              <label>Company / Client Name</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-building fi"></i>
+                <input type="text" id="signupCompany" placeholder="Your company or your name">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Username</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-user fi"></i>
+                <input type="text" id="signupUsername" placeholder="Choose a username" required autocomplete="username">
+              </div>
+            </div>
+
+            <!-- Client-only field -->
+            <div class="form-field hidden" id="industryField">
+              <label>Industry</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-briefcase fi"></i>
+                <select id="signupIndustry">
+                  <option value="" disabled selected>Select your industry…</option>
+                  <option>Technology</option><option>E-Commerce</option>
+                  <option>Marketing & Advertising</option><option>Media & Publishing</option>
+                  <option>Finance</option><option>Healthcare</option>
+                  <option>Education</option><option>Real Estate</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Password</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-lock fi"></i>
+                <input type="password" id="signupPassword" placeholder="Create a password (min 6 chars)" required oninput="checkStrength(this.value)">
+                <i class="fa-solid fa-eye eye-toggle" onclick="togglePwd('signupPassword',this)"></i>
+              </div>
+              <div class="pwd-strength" id="pwdStrength">
+                <div class="pwd-bar"><div class="pwd-fill" id="pwdFill"></div></div>
+                <div class="pwd-text" id="pwdText"></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <label>Confirm Password</label>
+              <div class="field-wrap">
+                <i class="fa-solid fa-shield-halved fi"></i>
+                <input type="password" id="signupConfirm" placeholder="Repeat your password" required>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-auth" id="signupBtn">
+              <i class="fa-solid fa-user-plus"></i> Create Account
+            </button>
+            <div id="signupMsg" class="auth-msg"></div>
+          </form>
+
+          <div class="auth-divider">or</div>
+          <div class="auth-toggle">Already have an account? <a onclick="switchTab('login')">Sign in →</a></div>
+        </div>
+
+      </div><!-- /formPanel -->
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* =================== STATE =================== */
+let selectedRole = null; // 'writer' | 'client'
+
+/* =================== THEME / ACCENT =================== */
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('wwTheme', t);
+  document.getElementById('lightBtn').classList.toggle('active', t === 'light');
+  document.getElementById('darkBtn').classList.toggle('active', t !== 'light');
+}
+function setAccent(a, el) {
+  document.documentElement.setAttribute('data-accent', a);
+  localStorage.setItem('wwAccent', a);
+  document.querySelectorAll('.adot').forEach(d => d.classList.remove('active'));
+  el.classList.add('active');
+}
+(function initPrefs() {
+  const t = localStorage.getItem('wwTheme') || 'dark';
+  const a = localStorage.getItem('wwAccent') || 'purple';
+  document.documentElement.setAttribute('data-theme', t);
+  document.documentElement.setAttribute('data-accent', a);
+  if (t === 'light') {
+    document.getElementById('lightBtn').classList.add('active');
+    document.getElementById('darkBtn').classList.remove('active');
+  }
+  const dot = document.querySelector(`.adot[onclick*="'${a}'"]`);
+  if (dot) { document.querySelectorAll('.adot').forEach(d => d.classList.remove('active')); dot.classList.add('active'); }
+})();
+
+/* =================== ROLE PICKER =================== */
+function pickRole(role) {
+  selectedRole = role;
+
+  // Update card selection
+  document.getElementById('cardWriter').classList.toggle('picked', role === 'writer');
+  document.getElementById('cardClient').classList.toggle('picked', role === 'client');
+
+  // Enable continue button
+  document.getElementById('btnContinue').classList.add('ready');
+
+  // Swap left-panel branding
+  document.getElementById('leftWriter').style.display = role === 'writer' ? 'block' : 'none';
+  document.getElementById('leftClient').style.display = role === 'client' ? 'block' : 'none';
+}
+
+function proceedToForm() {
+  // Update step indicators
+  const s1 = document.getElementById('step1dot');
+  const s2 = document.getElementById('step2dot');
+  const line = document.getElementById('stepLine1');
+  const l1 = document.getElementById('step1lbl');
+  const l2 = document.getElementById('step2lbl');
+  if (s1) { s1.classList.remove('active'); s1.classList.add('done'); s1.innerHTML='<i class="fa-solid fa-check" style="font-size:.6rem"></i>'; }
+  if (s2) s2.classList.add('active');
+  if (line) line.classList.add('done');
+  if (l1) { l1.classList.remove('active'); l1.classList.add('done'); }
+  if (l2) l2.classList.add('active');
+  if (!selectedRole) return;
+
+  // Hide picker, show form
+  document.getElementById('rolePicker').style.display = 'none';
+  const fp = document.getElementById('formPanel');
+
+  // Move step indicator to formPanel
+  const wrap = document.getElementById('stepProgressWrap');
+  if (wrap && fp) fp.insertBefore(wrap, fp.firstChild);
+  fp.style.display = 'block';
+
+  // Update role badge
+  const badge = document.getElementById('roleBadge');
+  if (selectedRole === 'writer') {
+    badge.className = 'active-role-badge badge-writer';
+    badge.innerHTML = '<i class="fa-solid fa-pen-nib"></i> Signing in as Writer';
+  } else {
+    badge.className = 'active-role-badge badge-client';
+    badge.innerHTML = '<i class="fa-solid fa-building"></i> Signing in as Client';
+  }
+
+  // Update form copy
+  if (selectedRole === 'client') {
+    document.getElementById('loginTitle').textContent  = 'Welcome back 👋';
+    document.getElementById('loginSub').textContent    = 'Sign in to your Client Portal';
+    document.getElementById('signupTitle').textContent = 'Create client account 🚀';
+    document.getElementById('signupSub').textContent   = 'Start posting jobs and hiring writers today';
+    document.getElementById('signupBtn').innerHTML     = '<i class="fa-solid fa-building-circle-check"></i> Create Client Account';
+    // Show client-only fields
+    document.getElementById('companyField').classList.remove('hidden');
+    document.getElementById('industryField').classList.remove('hidden');
+  } else {
+    document.getElementById('loginTitle').textContent  = 'Welcome back 👋';
+    document.getElementById('loginSub').textContent    = 'Sign in to access your writing dashboard';
+    document.getElementById('signupTitle').textContent = 'Create account ✍️';
+    document.getElementById('signupSub').textContent   = 'Join WriteWork and start earning today';
+    document.getElementById('signupBtn').innerHTML     = '<i class="fa-solid fa-user-plus"></i> Create Account';
+    document.getElementById('companyField').classList.add('hidden');
+    document.getElementById('industryField').classList.add('hidden');
+  }
+
+  switchTab('login');
+}
+
+function goBack() {
+  // Reset steps
+  const s1 = document.getElementById('step1dot');
+  const s2 = document.getElementById('step2dot');
+  const line = document.getElementById('stepLine1');
+  const l1 = document.getElementById('step1lbl');
+  const l2 = document.getElementById('step2lbl');
+  const rp = document.getElementById('rolePicker');
+  if (s1) { s1.classList.add('active'); s1.classList.remove('done'); s1.innerHTML='1'; }
+  if (s2) s2.classList.remove('active');
+  if (line) line.classList.remove('done');
+  if (l1) { l1.classList.add('active'); l1.classList.remove('done'); }
+  if (l2) l2.classList.remove('active');
+  // Move step indicator back
+  const wrap = document.getElementById('stepProgressWrap');
+  if (wrap && rp) rp.insertBefore(wrap, rp.firstChild);
+
+  document.getElementById('formPanel').style.display = 'none';
+  document.getElementById('rolePicker').style.display = 'block';
+  document.getElementById('rolePicker').style.animation = 'none';
+  void document.getElementById('rolePicker').offsetHeight;
+  document.getElementById('rolePicker').style.animation = 'fadeUp .4s cubic-bezier(.22,.68,0,1.2) both';
+  // Reset messages
+  document.getElementById('loginMsg').className  = 'auth-msg';
+  document.getElementById('signupMsg').className = 'auth-msg';
+}
+
+/* =================== TAB SWITCH =================== */
+function switchTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('loginPanel').classList.toggle('hidden', !isLogin);
+  document.getElementById('signupPanel').classList.toggle('hidden', isLogin);
+  document.getElementById('tab-login').classList.toggle('active', isLogin);
+  document.getElementById('tab-signup').classList.toggle('active', !isLogin);
+  document.getElementById('loginMsg').className  = 'auth-msg';
+  document.getElementById('signupMsg').className = 'auth-msg';
+}
+
+/* =================== PASSWORD =================== */
+function togglePwd(id, icon) {
+  const inp = document.getElementById(id);
+  const show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  icon.className = 'fa-solid fa-eye' + (show ? '-slash' : '') + ' eye-toggle';
+}
+function checkStrength(val) {
+  const el   = document.getElementById('pwdStrength');
+  const fill = document.getElementById('pwdFill');
+  const text = document.getElementById('pwdText');
+  if (!val) { el.style.display = 'none'; return; }
+  el.style.display = 'block';
+  let s = 0;
+  if (val.length >= 6)  s++;
+  if (val.length >= 10) s++;
+  if (/[A-Z]/.test(val)) s++;
+  if (/[0-9]/.test(val)) s++;
+  if (/[^A-Za-z0-9]/.test(val)) s++;
+  const lvls = [
+    { w: '20%', c: '#f43f5e', t: 'Weak' },
+    { w: '40%', c: '#f97316', t: 'Fair' },
+    { w: '65%', c: '#f59e0b', t: 'Good' },
+    { w: '85%', c: '#10b981', t: 'Strong' },
+    { w: '100%', c: '#059669', t: 'Excellent' }
+  ];
+  const lvl = lvls[Math.max(0, Math.min(s - 1, 4))];
+  fill.style.width = lvl.w; fill.style.background = lvl.c;
+  text.textContent = lvl.t; text.style.color = lvl.c;
+}
+
+/* =================== USER STORE =================== */
+function getUsers() { return JSON.parse(localStorage.getItem('wwUsers') || '[]'); }
+function saveUsers(u) { localStorage.setItem('wwUsers', JSON.stringify(u)); }
+
+/* =================== LOGIN =================== */
+function handleLogin(e) {
+  e.preventDefault();
+  const username = document.getElementById('loginUsername').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+  const users    = getUsers();
+  const user     = users.find(u => u.username === username && u.password === password);
+  const msg      = document.getElementById('loginMsg');
+  const btn      = document.getElementById('loginBtn');
+
+  if (user) {
+    // Check role matches — warn but still allow (in case user picked wrong role)
+    const storedRole = user.role || 'writer';
+    if (storedRole !== selectedRole) {
+      msg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> This account is registered as a <strong>${storedRole}</strong>. Redirecting there…`;
+      msg.className = 'auth-msg ok';
+      setTimeout(() => finishLogin(username, storedRole), 1200);
+      return;
+    }
+
+    msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Login successful! Redirecting…';
+    msg.className = 'auth-msg ok';
+    btn.disabled  = true;
+    btn.innerHTML = '<i class="fa-solid fa-circle-notch spin"></i> Loading…';
+
+    if (document.getElementById('rememberMe').checked) {
+      localStorage.setItem('wwCurrentUser', username);
+    } else {
+      sessionStorage.setItem('wwCurrentUser', username);
+    }
+    setTimeout(() => finishLogin(username, selectedRole), 800);
+  } else {
+    msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Invalid username or password.';
+    msg.className = 'auth-msg err';
+    const form = document.getElementById('loginForm');
+    form.style.animation = 'none';
+    void form.offsetHeight;
+    form.style.animation = 'shake .4s ease both';
+  }
+}
+
+/* =================== SIGNUP =================== */
+function handleSignup(e) {
+  e.preventDefault();
+  const username = document.getElementById('signupUsername').value.trim();
+  const password = document.getElementById('signupPassword').value.trim();
+  const confirm  = document.getElementById('signupConfirm').value.trim();
+  const company  = document.getElementById('signupCompany').value.trim();
+  const industry = document.getElementById('signupIndustry').value;
+  const msg      = document.getElementById('signupMsg');
+  const btn      = document.getElementById('signupBtn');
+
+  if (password !== confirm) {
+    msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Passwords do not match!';
+    msg.className = 'auth-msg err'; return;
+  }
+  if (password.length < 6) {
+    msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Password must be at least 6 characters.';
+    msg.className = 'auth-msg err'; return;
+  }
+  const users = getUsers();
+  if (users.find(u => u.username === username)) {
+    msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Username already taken!';
+    msg.className = 'auth-msg err'; return;
+  }
+
+  // Save user with role
+  users.push({ username, password, role: selectedRole, company, industry });
+  saveUsers(users);
+
+  // Pre-populate client profile if client
+  if (selectedRole === 'client') {
+    const CK = key => `ww_${username}_client_${key}`;
+    localStorage.setItem(CK('profile'), JSON.stringify({ company, email: '', industry, about: '' }));
+  }
+
+  msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Account created! Setting up your workspace…';
+  msg.className = 'auth-msg ok';
+  btn.disabled  = true;
+  btn.innerHTML = '<i class="fa-solid fa-circle-notch spin"></i> Setting up…';
+
+  sessionStorage.setItem('wwCurrentUser', username);
+  setTimeout(() => finishLogin(username, selectedRole, true), 900);
+}
+
+/* =================== REDIRECT =================== */
+function finishLogin(username, role, isNew = false) {
+  const users   = getUsers();
+  const user    = users.find(u => u.username === username);
+  const display = user?.company || username;
+
+  if (document.getElementById('rememberMe')?.checked) {
+    localStorage.setItem('wwCurrentUser', username);
+  }
+  if (!localStorage.getItem('wwCurrentUser')) {
+    sessionStorage.setItem('wwCurrentUser', username);
+  }
+
+  const overlay = document.getElementById('redirectOverlay');
+  const icon    = document.getElementById('redirectIcon');
+  const title   = document.getElementById('redirectTitle');
+  const sub     = document.getElementById('redirectSub');
+
+  if (role === 'client') {
+    icon.innerHTML  = '<i class="fa-solid fa-building"></i>';
+    title.textContent = 'Welcome to your Client Portal ✨';
+    sub.textContent   = isNew ? `Setting up your workspace, ${display}…` : `Loading your portal, ${display}…`;
+  } else {
+    icon.innerHTML  = '<i class="fa-solid fa-wand-magic-sparkles"></i>';
+    title.textContent = 'Welcome to WriteWork! ✨';
+    sub.textContent   = isNew ? `Setting up your dashboard, ${display}…` : `Loading your dashboard, ${display}…`;
+  }
+
+  overlay.classList.add('show');
+
+  const dest = role === 'client' ? 'writework-client.html' : 'writework-dashboard.html';
+  setTimeout(() => { window.location.href = dest; }, 1500);
+}
+
+/* =================== AUTO-LOGIN =================== */
+(function checkSession() {
+  const username = localStorage.getItem('wwCurrentUser') || sessionStorage.getItem('wwCurrentUser');
+  if (username) {
+    const users = getUsers();
+    const user  = users.find(u => u.username === username);
+    if (!user) {
+      // Stale session — clear it so the login page is usable
+      localStorage.removeItem('wwCurrentUser');
+      sessionStorage.removeItem('wwCurrentUser');
+      return;
+    }
+    const role  = user.role || 'writer';
+    selectedRole = role;
+    finishLogin(username, role);
+  }
+})();
+
+/* =================== CANVAS PARTICLES =================== */
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx    = canvas.getContext('2d');
+  let W, H, particles = [];
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  class P {
+    constructor() { this.reset(); }
+    reset() {
+      this.x  = Math.random() * W; this.y = Math.random() * H;
+      this.r  = Math.random() * 1.8 + 0.4;
+      this.vx = (Math.random() - .5) * .25; this.vy = (Math.random() - .5) * .25;
+      this.a  = Math.random() * .35 + .08;
+    }
+    update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(); }
+    draw() {
+      const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = dark ? `rgba(168,85,247,${this.a})` : `rgba(124,58,237,${this.a * .7})`;
+      ctx.fill();
+    }
+  }
+  for (let i = 0; i < 90; i++) particles.push(new P());
+  function animate() { ctx.clearRect(0, 0, W, H); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
+  animate();
+})();
+
+/* =================== FORGOT PASSWORD =================== */
+function openForgotModal() {
+  const el = document.getElementById('forgotModal');
+  document.getElementById('forgotUsername').value = document.getElementById('loginUsername')?.value.trim() || '';
+  document.getElementById('forgotContact').value = '';
+  document.getElementById('forgotResult').className = 'forgot-result';
+  document.getElementById('forgotResult').innerHTML = '';
+  el.classList.add('show');
+  setTimeout(() => document.getElementById('forgotUsername').focus(), 100);
+}
+function closeForgotModal() {
+  document.getElementById('forgotModal').classList.remove('show');
+}
+function handleForgotPassword() {
+  const username = document.getElementById('forgotUsername').value.trim();
+  const contact  = document.getElementById('forgotContact').value.trim().toLowerCase().replace(/\s/g,'');
+  const result   = document.getElementById('forgotResult');
+
+  if (!username) {
+    result.className = 'forgot-result notfound';
+    result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Please enter your username.';
+    return;
+  }
+  if (!contact) {
+    result.className = 'forgot-result notfound';
+    result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Please enter your Gmail or phone number.';
+    return;
+  }
+
+  const user = getUsers().find(u => u.username.toLowerCase() === username.toLowerCase());
+  if (!user) {
+    result.className = 'forgot-result notfound';
+    result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> No account found with that username.';
+    return;
+  }
+
+  // Fetch profile data saved by the user in their profile page
+  const profileKey = user.role === 'client'
+    ? 'ww_' + user.username + '_client_profile'
+    : 'ww_' + user.username + '_profile';
+  const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
+
+  // Normalise saved email and phone for comparison
+  const savedEmail = (profile?.email || '').toLowerCase().trim();
+  const savedPhone = (profile?.phone || '').replace(/\s/g,'').toLowerCase();
+
+  const contactNorm = contact.replace(/\s/g,'').toLowerCase();
+  const match = (savedEmail && contactNorm === savedEmail) || (savedPhone && contactNorm === savedPhone);
+
+  if (match) {
+    result.className = 'forgot-result found';
+    result.innerHTML = '<i class="fa-solid fa-circle-check"></i> Identity verified!<br>' +
+      '<span style="opacity:.75;font-weight:500;">Role:</span> ' + (user.role === 'client' ? '🏢 Client' : '✍️ Writer') + '<br>' +
+      '<span style="opacity:.75;font-weight:500;">Password:</span> ' +
+      '<span style="font-family:monospace;background:rgba(16,185,129,0.12);padding:2px 8px;border-radius:6px;margin-left:4px;">' + user.password + '</span>';
+  } else {
+    result.className = 'forgot-result notfound';
+    result.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> The Gmail or phone number does not match our records.<br><span style="font-size:.78rem;opacity:.8;">Make sure it matches what you saved on your profile page.</span>';
+  }
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeForgotModal(); });
+
+</script>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div id="forgotModal">
+  <div class="forgot-backdrop" onclick="closeForgotModal()"></div>
+  <div class="forgot-box">
+    <button class="forgot-close" onclick="closeForgotModal()"><i class="fa-solid fa-xmark"></i></button>
+    <div style="width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;margin-bottom:16px;box-shadow:0 6px 18px var(--glow);"><i class="fa-solid fa-key"></i></div>
+    <h3>Forgot Password?</h3>
+    <p>Enter your <strong>username</strong> and the <strong>Gmail or phone number</strong> linked to your account to recover your password.</p>
+
+    <div class="form-field" style="margin-bottom:10px;">
+      <label>Username <span style="color:#f43f5e;">*</span></label>
+      <div class="field-wrap">
+        <i class="fa-solid fa-user fi"></i>
+        <input type="text" id="forgotUsername" placeholder="Enter your username" autocomplete="off" oninput="document.getElementById('forgotResult').className='forgot-result'">
+      </div>
+    </div>
+
+    <div class="form-field" style="margin-bottom:14px;">
+      <label>Gmail or Phone Number <span style="color:#f43f5e;">*</span></label>
+      <div class="field-wrap">
+        <i class="fa-solid fa-envelope fi"></i>
+        <input type="text" id="forgotContact" placeholder="your@gmail.com or +254 7XX XXX XXX" autocomplete="off" oninput="document.getElementById('forgotResult').className='forgot-result'">
+      </div>
+    </div>
+
+    <div style="font-size:.75rem;color:var(--muted);background:rgba(124,58,237,0.07);border:1px solid var(--border);border-radius:10px;padding:10px 13px;margin-bottom:14px;display:flex;gap:8px;align-items:flex-start;">
+      <i class="fa-solid fa-circle-info" style="color:var(--accent);margin-top:1px;flex-shrink:0;"></i>
+      <span>These details must match what is saved in your <strong>profile page</strong>. Make sure your Gmail and phone are up to date there.</span>
+    </div>
+
+    <button class="btn-auth" onclick="handleForgotPassword()" style="margin-top:4px;">
+      <i class="fa-solid fa-magnifying-glass"></i> Recover My Password
+    </button>
+    <div id="forgotResult" class="forgot-result"></div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script>
+
+/* ============================================================
+   UI IMPROVEMENTS - Shared JS
+   ============================================================ */
+
+// ── TOAST SYSTEM ─────────────────────────────────────────────
+function showToast(msg, type='info', duration=3500) {
+  let container = document.getElementById('toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    document.body.appendChild(container);
+  }
+  const icons = { ok:'fa-circle-check', err:'fa-circle-xmark', info:'fa-circle-info' };
+  const t = document.createElement('div');
+  t.className = `toast toast-${type}`;
+  t.innerHTML = `<i class="fa-solid ${icons[type]||icons.info}"></i><span>${msg}</span><i class="fa-solid fa-xmark toast-close"></i>`;
+  t.onclick = () => dismissToast(t);
+  container.appendChild(t);
+  setTimeout(() => dismissToast(t), duration);
+}
+function dismissToast(t) {
+  if (!t.parentNode) return;
+  t.style.animation = 'toastOut .3s ease both';
+  setTimeout(() => t.parentNode && t.parentNode.removeChild(t), 300);
+}
+
+// ── RIPPLE ON BUTTONS ─────────────────────────────────────────
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('button, .btn-apply, .btn-auth, .btn-continue, .btn-connect');
+  if (!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const r = document.createElement('span');
+  const size = Math.max(rect.width, rect.height);
+  r.className = 'ripple';
+  r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;`;
+  btn.style.position = btn.style.position || 'relative';
+  btn.style.overflow = 'hidden';
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 600);
+});
+
+// ── MOBILE SIDEBAR TOGGLE ─────────────────────────────────────
+function initMobileSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const ham = document.querySelector('.hamburger');
+  if (!sidebar || !ham) return;
+  let overlay = document.querySelector('.sidebar-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+  }
+  ham.addEventListener('click', () => {
+    const open = sidebar.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    overlay.classList.toggle('show', open);
+  });
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    ham.classList.remove('open');
+    overlay.classList.remove('show');
+  });
+}
+
+// ── AVATAR INITIALS FALLBACK ──────────────────────────────────
+function initAvatarFallbacks() {
+  document.querySelectorAll('img.sidebar-user-avatar, img.user-chip-avatar, img#navAvatar, img#sidebarAvatar').forEach(img => {
+    img.addEventListener('error', function() {
+      if (this._fallbackDone) return;
+      this._fallbackDone = true;
+      const name = (this.alt || document.getElementById('sidebarName')?.textContent || 'U').trim();
+      const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || 'W';
+      const wrap = this.parentElement;
+      const div = document.createElement('div');
+      div.className = 'avatar-initials';
+      div.style.fontSize = this.width > 50 ? '1.2rem' : '.75rem';
+      div.textContent = initials;
+      wrap.replaceChild(div, this);
+    });
+    // Trigger if already broken
+    if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+  });
+}
+
+// ── COUNTER ANIMATION ─────────────────────────────────────────
+function animateCounter(el, target, prefix='', suffix='', duration=900) {
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  const decimals = isFloat ? String(target).split('.')[1].length : 0;
+  function update(now) {
+    const pct = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - pct, 3);
+    const val = ease *target;
+    el.textContent = prefix + (isFloat ? val.toFixed(decimals) : Math.round(val)) + suffix;
+    if (pct < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// ── INTERSECTION OBSERVER FOR REVEALS ────────────────────────
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold:0.1 });
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => obs.observe(el));
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  initMobileSidebar();
+  initAvatarFallbacks();
+  initReveal();
+});
+
+</script>
+</body>
+</html>
