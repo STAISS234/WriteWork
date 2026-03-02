@@ -3,11 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Android / PWA enhancements -->
-<meta name="theme-color" content="#1a1a2e">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>WriteWork</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdjM2FlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNhODU1ZjciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoaW5lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4yNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gUm91bmRlZCBzcXVhcmUgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFNoaW5lIG92ZXJsYXkgLS0+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9InVybCgjc2hpbmUpIi8+CiAgPCEtLSBXIGxldHRlciAtLT4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGxldHRlci1zcGFjaW5nPSItMiI+VzwvdGV4dD4KICA8IS0tIFNtYWxsIHNwYXJrbGUgZG90IHRvcC1yaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNCIgcj0iNyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPgo8L3N2Zz4=">
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdjM2FlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNhODU1ZjciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoaW5lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4yNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gUm91bmRlZCBzcXVhcmUgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFNoaW5lIG92ZXJsYXkgLS0+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9InVybCgjc2hpbmUpIi8+CiAgPCEtLSBXIGxldHRlciAtLT4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGxldHRlci1zcGFjaW5nPSItMiI+VzwvdGV4dD4KICA8IS0tIFNtYWxsIHNwYXJrbGUgZG90IHRvcC1yaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNCIgcj0iNyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPgo8L3N2Zz4=">
@@ -60,12 +55,7 @@ body {
   min-height:100vh;
   overflow-x:hidden;
   transition:background .35s,color .35s;
-  /* ensure gestures are handled promptly on mobile */
-  touch-action:manipulation;
 }
-
-/* enforce minimum font size to prevent auto-zoom on Android */
-input,select,textarea{font-size:16px!important;}
 
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:transparent; }
@@ -3321,6 +3311,18 @@ function initMobileSidebar() {
     overlay.className = 'sidebar-overlay';
     document.body.appendChild(overlay);
   }
+
+  // helper to ensure sidebar is closed on narrow displays
+  function updateSidebarState() {
+    if (window.innerWidth <= 900) {
+      sidebar.classList.remove('open');
+      ham.classList.remove('open');
+      overlay.classList.remove('show');
+    }
+  }
+  updateSidebarState();
+  window.addEventListener('resize', updateSidebarState);
+
   ham.addEventListener('click', () => {
     const open = sidebar.classList.toggle('open');
     ham.classList.toggle('open', open);
