@@ -94,10 +94,6 @@ input,select,textarea{-webkit-user-select:text;user-select:text;}
   display:flex;align-items:center;gap:13px;
   color:var(--text);font-size:.87rem;font-weight:500;
 }
-.auth-feature:nth-child(1){}
-.auth-feature:nth-child(2){}
-.auth-feature:nth-child(3){}
-.auth-feature:nth-child(4){}
 @keyframes featIn{from{opacity:0;transform:translateX(-14px);}to{opacity:1;transform:translateX(0);}}
 .auth-feature-dot{
   width:34px;height:34px;border-radius:10px;
@@ -260,7 +256,12 @@ input,select,textarea{-webkit-user-select:text;user-select:text;}
   border:1.5px solid var(--border);border-radius:12px;
   font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--text);
   background:var(--input-bg);outline:none;transition:all .15s ease-out;-webkit-appearance:none;
-  -webkit-autofill:{outline:none;}
+}
+
+/* Fix: autofill is a pseudo-class, not a property block */
+.field-wrap input:-webkit-autofill,
+.field-wrap select:-webkit-autofill{
+  outline:none;
 }
 @media(max-width:768px){
   .field-wrap input,.field-wrap select{padding:12px 14px 12px 38px;font-size:16px;border-radius:10px;}
@@ -745,7 +746,7 @@ function setAccent(a, el) {
     document.getElementById('lightBtn').classList.add('active');
     document.getElementById('darkBtn').classList.remove('active');
   }
-  const dot = document.querySelector(`.adot[onclick*="'${a}'"]`);
+  var dot = document.querySelector('.adot[onclick*="\'' + a + '\'"]');
   if (dot) { document.querySelectorAll('.adot').forEach(d => d.classList.remove('active')); dot.classList.add('active'); }
 })();
 
@@ -896,8 +897,9 @@ function handleLogin(e) {
   e.preventDefault();
   const username = document.getElementById('loginUsername').value.trim();
   const password = document.getElementById('loginPassword').value.trim();
-  const users    = getUsers();
-  const user     = users.find(u => u.username === username && u.password === password);
+  var users    = getUsers();
+  var user = null;
+  for (var _i2 = 0; _i2 < users.length; _i2++) { if (users[_i2].username === username && users[_i2].password === password) { user = users[_i2]; break; } }
   const msg      = document.getElementById('loginMsg');
   const btn      = document.getElementById('loginBtn');
 
@@ -905,7 +907,7 @@ function handleLogin(e) {
     // Check role matches — warn but still allow (in case user picked wrong role)
     const storedRole = user.role || 'writer';
     if (storedRole !== selectedRole) {
-      msg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> This account is registered as a <strong>${storedRole}</strong>. Redirecting there…`;
+      msg.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> This account is registered as a <strong>' + storedRole + '</strong>. Redirecting there…';
       msg.className = 'auth-msg ok';
       setTimeout(() => finishLogin(username, storedRole), 1200);
       return;
@@ -951,8 +953,9 @@ function handleSignup(e) {
     msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Password must be at least 6 characters.';
     msg.className = 'auth-msg err'; return;
   }
-  const users = getUsers();
-  if (users.find(u => u.username === username)) {
+  var users = getUsers();
+  var _existsUser = false; for (var _i3 = 0; _i3 < users.length; _i3++) { if (users[_i3].username === username) { _existsUser = true; break; } }
+  if (_existsUser) {
     msg.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Username already taken!';
     msg.className = 'auth-msg err'; return;
   }
@@ -963,7 +966,7 @@ function handleSignup(e) {
 
   // Pre-populate client profile if client
   if (selectedRole === 'client') {
-    const CK = key => `ww_${username}_client_${key}`;
+    function CK(key) { return 'ww_' + username + '_client_' + key; }
     localStorage.setItem(CK('profile'), JSON.stringify({ company, email: '', industry, about: '' }));
   }
 
@@ -978,11 +981,12 @@ function handleSignup(e) {
 
 /* =================== REDIRECT =================== */
 function finishLogin(username, role, isNew = false) {
-  const users   = getUsers();
-  const user    = users.find(u => u.username === username);
-  const display = user?.company || username;
+  var users   = getUsers();
+  var user = null; for (var _i4 = 0; _i4 < users.length; _i4++) { if (users[_i4].username === username) { user = users[_i4]; break; } }
+  const display = (user && user.company) ? user.company : username;
 
-  if (document.getElementById('rememberMe')?.checked) {
+  const rememberEl = document.getElementById('rememberMe');
+  if (rememberEl && rememberEl.checked) {
     localStorage.setItem('wwCurrentUser', username);
   }
   if (!localStorage.getItem('wwCurrentUser')) {
@@ -997,11 +1001,11 @@ function finishLogin(username, role, isNew = false) {
   if (role === 'client') {
     icon.innerHTML  = '<i class="fa-solid fa-building"></i>';
     title.textContent = 'Welcome to your Client Portal ✨';
-    sub.textContent   = isNew ? `Setting up your workspace, ${display}…` : `Loading your portal, ${display}…`;
+    sub.textContent   = isNew ? ('Setting up your workspace, ' + display + '…') : ('Loading your portal, ' + display + '…');
   } else {
     icon.innerHTML  = '<i class="fa-solid fa-wand-magic-sparkles"></i>';
     title.textContent = 'Welcome to WriteWork! ✨';
-    sub.textContent   = isNew ? `Setting up your dashboard, ${display}…` : `Loading your dashboard, ${display}…`;
+    sub.textContent   = isNew ? ('Setting up your dashboard, ' + display + '…') : ('Loading your dashboard, ' + display + '…');
   }
 
   overlay.classList.add('show');
@@ -1041,7 +1045,8 @@ function finishLogin(username, role, isNew = false) {
 /* =================== FORGOT PASSWORD =================== */
 function openForgotModal() {
   const el = document.getElementById('forgotModal');
-  document.getElementById('forgotUsername').value = document.getElementById('loginUsername')?.value.trim() || '';
+  const loginUn = document.getElementById('loginUsername');
+  document.getElementById('forgotUsername').value = loginUn ? loginUn.value.trim() : '';
   document.getElementById('forgotContact').value = '';
   document.getElementById('forgotResult').className = 'forgot-result';
   document.getElementById('forgotResult').innerHTML = '';
@@ -1081,8 +1086,8 @@ function handleForgotPassword() {
   const profile = JSON.parse(localStorage.getItem(profileKey) || 'null');
 
   // Normalise saved email and phone for comparison
-  const savedEmail = (profile?.email || '').toLowerCase().trim();
-  const savedPhone = (profile?.phone || '').replace(/\s/g,'').toLowerCase();
+  const savedEmail = (profile && profile.email ? profile.email : '').toLowerCase().trim();
+  const savedPhone = (profile && profile.phone ? profile.phone : '').replace(/\s/g,'').toLowerCase();
 
   const contactNorm = contact.replace(/\s/g,'').toLowerCase();
   const match = (savedEmail && contactNorm === savedEmail) || (savedPhone && contactNorm === savedPhone);
@@ -1155,8 +1160,8 @@ function showToast(msg, type='info', duration=3500) {
   }
   const icons = { ok:'fa-circle-check', err:'fa-circle-xmark', info:'fa-circle-info' };
   const t = document.createElement('div');
-  t.className = `toast toast-${type}`;
-  t.innerHTML = `<i class="fa-solid ${icons[type]||icons.info}"></i><span>${msg}</span><i class="fa-solid fa-xmark toast-close"></i>`;
+  t.className = 'toast toast-' + type;
+  t.innerHTML = '<i class="fa-solid ' + (icons[type]||icons.info) + '"></i><span>' + msg + '</span><i class="fa-solid fa-xmark toast-close"></i>';
   t.onclick = () => dismissToast(t);
   container.appendChild(t);
   setTimeout(() => dismissToast(t), duration);
@@ -1184,7 +1189,7 @@ document.addEventListener('click', function(e) {
   btn.style.position = 'relative';
   btn.style.overflow = 'hidden';
   btn.appendChild(r);
-  setTimeout(() => r.remove?.(), 600);
+  setTimeout(() => { if (r.remove) r.remove(); }, 600);
 });
 
 // ── MOBILE SIDEBAR TOGGLE ─────────────────────────────────────
@@ -1216,7 +1221,8 @@ function initAvatarFallbacks() {
     img.addEventListener('error', function() {
       if (this._fallbackDone) return;
       this._fallbackDone = true;
-      const name = (this.alt || document.getElementById('sidebarName')?.textContent || 'U').trim();
+      const sidebarNameEl = document.getElementById('sidebarName');
+      const name = (this.alt || (sidebarNameEl && sidebarNameEl.textContent) || 'U').trim();
       const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || 'W';
       const wrap = this.parentElement;
       const div = document.createElement('div');
@@ -1250,7 +1256,8 @@ function initReveal() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold:0.1 });
-  document.querySelectorAll('.reveal, .reveal-left').forEach(el => obs.observe(el));
+  var _revealEls = document.querySelectorAll('.reveal, .reveal-left');
+  for (var _k = 0; _k < _revealEls.length; _k++) { obs.observe(_revealEls[_k]); }
 }
 
 // ── INIT ──────────────────────────────────────────────────────
