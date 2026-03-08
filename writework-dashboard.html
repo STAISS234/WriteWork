@@ -2,13 +2,23 @@
 <html lang="en" data-theme="light" data-accent="purple">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- mobile/PWA enhancements -->
+<meta name="theme-color" content="#1a1a2e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>WriteWork</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdjM2FlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNhODU1ZjciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoaW5lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4yNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gUm91bmRlZCBzcXVhcmUgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFNoaW5lIG92ZXJsYXkgLS0+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9InVybCgjc2hpbmUpIi8+CiAgPCEtLSBXIGxldHRlciAtLT4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGxldHRlci1zcGFjaW5nPSItMiI+VzwvdGV4dD4KICA8IS0tIFNtYWxsIHNwYXJrbGUgZG90IHRvcC1yaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNCIgcj0iNyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPgo8L3N2Zz4=">
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzdjM2FlZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNhODU1ZjciLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9InNoaW5lIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MC4yNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjAiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gUm91bmRlZCBzcXVhcmUgYmFja2dyb3VuZCAtLT4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0idXJsKCNiZykiLz4KICA8IS0tIFNoaW5lIG92ZXJsYXkgLS0+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjMyIiByeD0iMTYiIGZpbGw9InVybCgjc2hpbmUpIi8+CiAgPCEtLSBXIGxldHRlciAtLT4KICA8dGV4dCB4PSIzMiIgeT0iNDQiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGxldHRlci1zcGFjaW5nPSItMiI+VzwvdGV4dD4KICA8IS0tIFNtYWxsIHNwYXJrbGUgZG90IHRvcC1yaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjE0IiByPSI0IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC45Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNCIgcj0iNyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMiIvPgo8L3N2Zz4=">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- non-blocking font load -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" onload="this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"></noscript>
+<!-- non-blocking Font Awesome -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
 <style>
 
@@ -30,6 +40,12 @@
   --input-bg:#f5f4f0; --input-focus:#fff;
   --tooltip-bg:#1a1a2e; --tooltip-text:#fff;
   --blob1:rgba(124,58,237,0.07); --blob2:rgba(14,165,233,0.05); --blob3:rgba(16,185,129,0.04);
+  --glass:rgba(255,255,255,0.7);
+  --glass-border:rgba(255,255,255,0.2);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.12);
+  --shadow-glow:0 4px 20px rgba(124,58,237,0.15);
 }
 
 /* ===================== DARK THEME ===================== */
@@ -43,23 +59,43 @@
   --input-bg:#111118; --input-focus:#1a1a2e;
   --tooltip-bg:#2a2a3e; --tooltip-text:#e0dff8;
   --blob1:rgba(124,58,237,0.12); --blob2:rgba(14,165,233,0.08); --blob3:rgba(16,185,129,0.06);
+  --glass:rgba(28,28,46,0.8);
+  --glass-border:rgba(255,255,255,0.08);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow:0 4px 20px rgba(124,58,237,0.3);
 }
 
 /* ===================== GLOBALS ===================== */
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html, body {overflow-x:hidden;height:100%;}
+/* prevent unbroken strings from causing horizontal scroll */
+body {word-wrap:break-word;overflow-wrap:break-word;height:100%;}
+
+/* ensure images and embeds never exceed their container */
+img,video,iframe,embed{max-width:100%;height:auto;display:block;}
+
 
 body {
   font-family:'DM Sans',sans-serif;
-  background:var(--surface);
+  background:linear-gradient(180deg, var(--surface) 0%, var(--surface2) 50%, var(--surface) 100%);
   color:var(--text);
   min-height:100vh;
-  overflow-x:hidden;
+  overflow:hidden;
   transition:background .35s,color .35s;
+  /* better touch handling on phones */
+  touch-action:manipulation;
 }
 
-::-webkit-scrollbar { width:5px; }
+/* Respect system reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+::-webkit-scrollbar { width:0px; height:0px; }
 ::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb { background:var(--accent2); border-radius:99px; }
+::-webkit-scrollbar-thumb { background:transparent; }
 
 /* ===================== ANIMATED BACKGROUND ===================== */
 #bg-canvas {
@@ -96,38 +132,49 @@ body {
   50%{transform:translate(70px,40px) scale(1.05);}
 }
 
+/* Low-power / mobile overrides: reduce costly blurs, shadows and animations */
+html.low-power .blob { filter:blur(18px); animation:none !important; }
+html.low-power .blob3 { display:none; }
+html.low-power header.navbar, html.low-power .card, html.low-power .ai-hero, html.low-power .sidebar { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; box-shadow:none !important; }
+html.low-power .logo-icon, html.low-power .stat-card, html.low-power .ai-hero-icon, html.low-power .btn-apply, html.low-power .notif-btn { box-shadow:none !important; }
+html.low-power .toast { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+/* Disable all animations/transitions in low-power mode as a catch-all */
+html.low-power *, html.low-power *::before, html.low-power *::after { animation: none !important; transition: none !important; }
+
+/* Ultra-low-power: remove heavy visuals entirely */
+html.ultra-low-power body { background: var(--surface) !important; }
+html.ultra-low-power .blob, html.ultra-low-power #bg-canvas { display:none !important; }
+html.ultra-low-power .logo-icon, html.ultra-low-power .stat-card, html.ultra-low-power .ai-hero-icon, html.ultra-low-power .btn-apply, html.ultra-low-power .notif-btn { box-shadow:none !important; }
+html.ultra-low-power header.navbar, html.ultra-low-power .card, html.ultra-low-power .ai-hero, html.ultra-low-power .sidebar { background:var(--surface) !important; border-color:transparent !important; backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+html.ultra-low-power .accent-picker, html.ultra-low-power .wallet-hero::before, html.ultra-low-power .wallet-hero::after { display:none !important; }
+html.ultra-low-power * { filter:none !important; }
+/* Further simplify visuals in ultra mode */
+html.ultra-low-power .gradient, html.ultra-low-power [style*="linear-gradient"] { background:none !important; }
+html.ultra-low-power i.fa, html.ultra-low-power .logo-icon i { display:none !important; }
+html.ultra-low-power .user-chip-name, html.ultra-low-power .profile-hint, html.ultra-low-power .card-title, html.ultra-low-power .stat-label { opacity:0.95; }
+
+
 /* ===================== NAVBAR ===================== */
 header.navbar {
-  background:var(--nav-bg);
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  padding:0 36px;
-  color:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:68px;
-  position:sticky;top:0;z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.07);
-  animation:navDrop .5s cubic-bezier(.22,.68,0,1.2) both;
+  display:none;
 }
-@keyframes navDrop{ from{transform:translateY(-100%);opacity:0;} to{transform:translateY(0);opacity:1;} }
 
 .logo {
   font-family:'Syne',sans-serif;
   font-size:1.5rem;font-weight:800;letter-spacing:-.5px;
   display:flex;align-items:center;gap:10px;
   color:#fff;
+  text-shadow:0 2px 10px rgba(124,58,237,0.3);
 }
 .logo-icon {
   width:36px;height:36px;
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   border-radius:10px;
   display:flex;align-items:center;justify-content:center;font-size:1rem;
-  transition:transform .4s cubic-bezier(.22,.68,0,1.4);
-  box-shadow:0 4px 14px var(--glow);
+  transition:all .4s cubic-bezier(.22,.68,0,1.4);
+  box-shadow:0 4px 20px var(--glow), 0 0 30px rgba(124,58,237,0.2);
 }
-.logo:hover .logo-icon { transform:rotate(18deg) scale(1.12); }
+.logo:hover .logo-icon { transform:rotate(18deg) scale(1.12); box-shadow:0 6px 25px var(--glow), 0 0 40px rgba(124,58,237,0.3); }
 
 nav { display:flex;align-items:center;gap:12px; }
 
@@ -142,9 +189,10 @@ nav { display:flex;align-items:center;gap:12px; }
   cursor:pointer;color:var(--nav-text);
   font-size:.85rem;
   transition:all .2s;
+  box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
-.theme-btn:hover { background:rgba(255,255,255,0.15);color:#fff;transform:scale(1.08); }
-.theme-btn.active { background:var(--accent);color:#fff;border-color:var(--accent); }
+.theme-btn:hover { background:rgba(255,255,255,0.15);color:#fff;transform:scale(1.08); box-shadow:0 4px 15px rgba(124,58,237,0.2); }
+.theme-btn.active { background:var(--accent);color:#fff;border-color:var(--accent); box-shadow:0 4px 15px var(--glow); }
 
 .accent-picker {
   display:flex;align-items:center;gap:5px;
@@ -212,29 +260,37 @@ nav { display:flex;align-items:center;gap:12px; }
   font-size:.84rem;font-weight:600;
   display:flex;align-items:center;gap:7px;
   transition:all .25s;cursor:pointer;text-decoration:none;
+  box-shadow:0 2px 10px rgba(244,63,94,0.1);
 }
-.btn-logout:hover { background:rgba(244,63,94,0.28)!important;color:#fff!important;transform:translateY(-1px); }
+.btn-logout:hover { background:rgba(244,63,94,0.28)!important;color:#fff!important;transform:translateY(-1px); box-shadow:0 4px 15px rgba(244,63,94,0.25); }
 .btn-logout:active { transform:scale(.96); }
 
 /* ===================== LAYOUT ===================== */
 .dashboard {
   display:flex;
-  max-width:1400px;margin:0 auto;
-  min-height:calc(100vh - 68px);
+  height:100vh;
   position:relative;z-index:1;
+  overflow:hidden;
 }
 
 /* ===================== SIDEBAR ===================== */
 .sidebar {
   width:260px;
-  background:var(--sidebar-bg);
+  background:var(--glass);
   backdrop-filter:blur(20px);
-  border-right:1px solid var(--sidebar-border);
+  -webkit-backdrop-filter:blur(20px);
+  border-right:1px solid var(--glass-border);
   padding:28px 18px;
-  position:sticky;top:68px;
-  height:calc(100vh - 68px);overflow-y:auto;flex-shrink:0;
-  transition:background .35s;
-  animation:sideSlide .5s cubic-bezier(.22,.68,0,1.2) .08s both;
+  position:fixed;top:0;left:0;
+  height:100vh;overflow-y:auto;flex-shrink:0;
+  transition:all .35s;
+  z-index:10;
+  box-shadow:var(--shadow-lg);
+}
+@media(max-width:1024px){.sidebar{width:240px;padding:20px 14px;}}
+@media(max-width:768px){
+  .sidebar{position:fixed!important;top:0;left:0;z-index:500;transform:translateX(-100%);transition:transform .35s cubic-bezier(.22,.68,0,1.2);height:100vh!important;box-shadow:4px 0 32px rgba(0,0,0,.25);}
+  .sidebar.open{transform:translateX(0);}
 }
 @keyframes sideSlide{from{transform:translateX(-28px);opacity:0;}to{transform:translateX(0);opacity:1;}}
 
@@ -257,10 +313,76 @@ nav { display:flex;align-items:center;gap:12px; }
 .sidebar ul li a.active { color:var(--accent);background:rgba(124,58,237,0.09);font-weight:600; }
 .sidebar ul li a.active .nav-icon { background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 12px var(--glow); }
 .sidebar ul li a:active { transform:scale(.97); }
-.sidebar-divider { height:1px;background:var(--border);margin:18px 0;transition:background .35s; }
+.sidebar-divider { height:1px;background:var(--border);margin:18px;transition:background .35s; }
+
+.sidebar ul li a { position:relative; }
+.sidebar ul li a.active::before{content:'';position:absolute;left:-18px;top:50%;transform:translateY(-50%);width:4px;height:22px;border-radius:0 4px 4px 0;background:linear-gradient(to bottom,var(--accent),var(--accent2));box-shadow:2px 0 10px var(--glow);}
+
+.sidebar-theme-btn {
+  flex:1;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;
+  padding:8px;
+  color:var(--muted);
+  cursor:pointer;
+  transition:all .2s;
+}
+.sidebar-theme-btn:hover { background:rgba(255,255,255,0.1);color:var(--text); }
+.sidebar-theme-btn.active { background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 10px var(--glow); }
+
+.sidebar-accent-dot {
+  width:16px;height:16px;border-radius:50%;
+  cursor:pointer;border:2px solid transparent;
+  transition:all .2s;
+}
+.sidebar-accent-dot:hover { transform:scale(1.3); }
+.sidebar-accent-dot.active { border-color:var(--text);transform:scale(1.15); }
+
+.sidebar-developers {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+}
+.sidebar-developers-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.sidebar-developers-names {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
 
 /* ===================== MAIN CONTENT ===================== */
-.dashboard-content { flex:1;padding:30px;overflow:hidden; }
+.dashboard-content { 
+  flex:1;padding:30px;margin-left:260px;
+  overflow-y:auto;overflow-x:hidden;
+  height:100vh;
+  display:flex;flex-direction:column;
+  background:linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+}
+.dashboard-content main {
+  flex:1;
+}
+footer { 
+  text-align:center;padding:16px;color:rgba(255,255,255,0.6);background:linear-gradient(180deg, var(--nav-bg) 0%, rgba(13,13,20,0.95) 100%);font-size:.8rem;font-weight:500;
+  flex-shrink:0;
+  margin-left:260px;
+  position:fixed;bottom:0;right:0;width:calc(100% - 260px);
+  border-top:1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+@media(max-width:1024px){footer{margin-left:240px;width:calc(100% - 240px);}}
+@media(max-width:1024px){.dashboard-content{margin-left:240px;}}
 
 /* ===================== SECTION TRANSITIONS ===================== */
 .section { display:none; }
@@ -440,9 +562,16 @@ nav { display:flex;align-items:center;gap:12px; }
 .card {
   background:var(--card);
   backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-radius:20px;padding:26px;
-  border:1px solid var(--border);margin-bottom:18px;
-  transition:background .35s,border-color .35s;
+  border:1px solid var(--glass-border);
+  margin-bottom:18px;
+  transition:all .35s;
+  box-shadow:var(--shadow-sm);
+}
+.card:hover {
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
 }
 .card-title { font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:18px;display:flex;align-items:center;gap:9px;transition:color .35s; }
 .card-title::before { content:'';width:3px;height:18px;background:linear-gradient(to bottom,var(--accent),var(--accent2));border-radius:99px; }
@@ -571,7 +700,8 @@ nav { display:flex;align-items:center;gap:12px; }
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   color:#fff;border:none;border-radius:10px;
   cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:600;
-  transition:all .22s;box-shadow:0 4px 12px var(--glow);
+  transition:all .22s;
+  box-shadow:0 4px 15px var(--glow), 0 0 20px rgba(124,58,237,0.15);
   position:relative;overflow:hidden;
 }
 .btn-apply::before {
@@ -580,7 +710,7 @@ nav { display:flex;align-items:center;gap:12px; }
   transform:scaleX(0);transform-origin:left;
   transition:transform .3s ease;border-radius:inherit;
 }
-.btn-apply:hover { transform:translateY(-2px);box-shadow:0 8px 22px var(--glow); }
+.btn-apply:hover { transform:translateY(-2px);box-shadow:0 8px 25px var(--glow), 0 0 30px rgba(124,58,237,0.25); }
 .btn-apply:hover::before { transform:scaleX(1); }
 .btn-apply:active { transform:scale(.94);box-shadow:0 2px 6px var(--glow); }
 .btn-apply:disabled { opacity:.5;cursor:not-allowed;transform:none;box-shadow:none; }
@@ -941,12 +1071,14 @@ footer span { color:var(--accent2);font-weight:600; }
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.1);
   border-radius:99px;padding:5px 13px 5px 5px;
-  transition:background .2s;cursor:default;
+  transition:all .2s;cursor:default;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
-.user-chip:hover { background:rgba(255,255,255,0.11); }
+.user-chip:hover { background:rgba(255,255,255,0.11); box-shadow:0 4px 15px rgba(124,58,237,0.15); border-color:rgba(124,58,237,0.3); }
 .user-chip-avatar {
   width:28px;height:28px;border-radius:50%;
   object-fit:cover;border:2px solid var(--accent2);flex-shrink:0;
+  box-shadow:0 0 10px rgba(168,85,247,0.3);
 }
 .user-chip-name {
   font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.85);
@@ -955,23 +1087,23 @@ footer span { color:var(--accent2);font-weight:600; }
 
 /* ===================== SIDEBAR USER BLOCK ===================== */
 .sidebar-user {
-  display:flex;align-items:center;gap:11px;
-  padding:12px 13px;border-radius:14px;
-  background:rgba(124,58,237,0.07);border:1px solid var(--border);
-  margin-bottom:20px;transition:background .35s,border-color .35s;
+  display:flex;align-items:center;gap:8px;
+  padding:8px 10px;border-radius:10px;
+  background:rgba(124,58,237,0.05);border:1px solid var(--border);
+  margin-bottom:18px;transition:background .35s,border-color .35s;
 }
-.sidebar-user:hover { background:rgba(124,58,237,0.12); }
+.sidebar-user:hover { background:rgba(124,58,237,0.09); }
 .sidebar-user-avatar {
-  width:38px;height:38px;border-radius:50%;
-  object-fit:cover;border:2px solid var(--accent2);flex-shrink:0;
+  width:30px;height:30px;border-radius:50%;
+  object-fit:cover;border:2px solid var(--accent);flex-shrink:0;
 }
-.sidebar-user-info { min-width:0; }
+.sidebar-user-info { flex:1;min-width:0;overflow:hidden; }
 .sidebar-user-name {
-  font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;
+  font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;
   color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  transition:color .35s;
+  display:block;line-height:1.2;transition:color .35s;
 }
-.sidebar-user-role { font-size:.71rem;color:var(--muted);font-weight:500;margin-top:1px; }
+.sidebar-user-role { font-size:.65rem;color:var(--muted);font-weight:600;margin-top:2px; }
 
 /* ===================== TOAST ===================== */
 @keyframes toastIn{from{opacity:0;transform:translateY(18px) scale(.92);}to{opacity:1;transform:translateY(0) scale(1);}}
@@ -1022,10 +1154,9 @@ footer span { color:var(--accent2);font-weight:600; }
 @keyframes rippleAnim { to { transform:scale(4); opacity:0; } }
 
 /* ── ENHANCED SCROLLBAR ────────────────────────────────── */
-::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar { width:0px; height:0px; }
 ::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb { background:var(--accent2); border-radius:99px; }
-::-webkit-scrollbar-thumb:hover { background:var(--accent); }
+::-webkit-scrollbar-thumb { background:transparent; }
 
 /* ── PULSE DOT ANIMATION ───────────────────────────────── */
 @keyframes pulseDot {
@@ -1068,21 +1199,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-
 .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
 .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-@media(max-width:900px) {
+@media(max-width:1024px) {
   .hamburger { display:flex; }
-  .sidebar {
-    position:fixed !important; top:68px; left:0; z-index:500;
-    transform:translateX(-100%); transition:transform .35s cubic-bezier(.22,.68,0,1.2);
-    height:calc(100vh - 68px) !important; box-shadow:4px 0 32px rgba(0,0,0,.25);
-  }
-  .sidebar.open { transform:translateX(0); }
-  .sidebar-overlay {
-    display:none; position:fixed; inset:0; top:68px; background:rgba(0,0,0,.5);
-    z-index:499; backdrop-filter:blur(2px);
-  }
-  .sidebar-overlay.show { display:block; animation:fadeIn .25s ease both; }
-  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  /* sidebar/overlay z-indexes set in the mobile overhaul block below */
 }
+/* ensure the hamburger and header stay on top of opened sidebar */
+.hamburger { z-index:1001; }
+header.navbar { z-index:1000; }
+
 
 /* ── ACTIVE NAV INDICATOR ──────────────────────────────── */
 .sidebar ul li a {
@@ -1249,25 +1373,15 @@ footer span { color:var(--accent2); font-weight:600; }
   .blob2{width:250px;height:250px;animation:none;}
   .blob3{display:none;}
 }
+/* hide blobs entirely on small phones to avoid overflow/jank */
+@media(max-width:600px){
+  .blob1,.blob2,.blob3{display:none;}
+}
 
-/* ── 900px: Sidebar becomes a slide-in drawer ── */
+
+/* ── 900px layout tweaks (sidebar positioning handled below) ── */
 @media(max-width:900px){
   .hamburger{display:flex;}
-  .sidebar{
-    position:fixed!important;top:68px;left:0;z-index:500;
-    transform:translateX(-100%);
-    transition:transform .35s cubic-bezier(.22,.68,0,1.2);
-    height:calc(100vh - 68px)!important;
-    box-shadow:4px 0 32px rgba(0,0,0,.25);
-    width:260px!important;
-  }
-  .sidebar.open{transform:translateX(0);}
-  .sidebar-overlay{
-    display:none;position:fixed;inset:0;top:68px;
-    background:rgba(0,0,0,.5);z-index:499;backdrop-filter:blur(2px);
-  }
-  .sidebar-overlay.show{display:block;animation:fadeIn .25s ease both;}
-  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
   .dashboard{flex-direction:column;}
   .dashboard-content{padding:16px;}
   .wallet-actions{grid-template-columns:1fr;}
@@ -1336,6 +1450,281 @@ footer span { color:var(--accent2); font-weight:600; }
   .wallet-actions{grid-template-columns:1fr 1fr;}
   .profile-form{grid-template-columns:1fr 1fr;}
 }
+
+/* ==============================================================
+   COMPLETE MOBILE OVERHAUL — Android-first
+   ============================================================== */
+
+/* ── 1. Prevent ALL horizontal overflow ── */
+html { overflow-x: hidden; }
+body { overflow-x: hidden; max-width: 100vw; word-break: break-word; }
+* { min-width: 0; }
+
+/* ── 2. Navbar: stop it overflowing on phones ── */
+@media(max-width:900px){
+  header.navbar {
+    padding: 0 14px;
+    gap: 8px;
+    height: 56px;
+    /* keep logo left, put hamburger right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* The <nav> holds ALL the right-side items.
+     On tablet we show a compact set; on phone we hide most */
+  header.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  /* Hide heavy nav items on tablet — show only essential */
+  header.navbar .accent-picker { display: none; }
+  header.navbar .btn-logout { display: none; }
+  header.navbar .user-chip-name { display: none; }
+  /* Move hamburger before nav in visual order so it's first */
+  header.navbar .hamburger { order: -1; }
+}
+
+@media(max-width:600px){
+  header.navbar { padding: 0 12px; height: 52px; }
+  /* On small phones: logo + notif bell + theme toggle only */
+  header.navbar .nav-controls { display: flex; }
+  header.navbar .user-chip { display: none; }
+  header.navbar .hamburger { display: none !important; } /* bottom nav handles navigation */
+  /* Slim notif button */
+  .notif-btn { width: 40px; height: 40px; }
+  /* Notification dropdown full-width */
+  #notificationDropdown { width: calc(100vw - 20px); right: -4px; top: 46px; max-height: 60vh; }
+}
+
+/* ── 3. Sidebar — proper slide-in drawer on all mobile ── */
+@media(max-width:900px){
+  .sidebar {
+    position: fixed !important;
+    top: 56px; left: 0;
+    width: min(280px, 85vw) !important;
+    height: calc(100dvh - 56px) !important;
+    z-index: 1100;                          /* above everything */
+    transform: translateX(-100%);
+    transition: transform .3s cubic-bezier(.22,.68,0,1.15);
+    box-shadow: 6px 0 40px rgba(0,0,0,.45);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 52px;
+  }
+  .sidebar.open { transform: translateX(0); }
+
+  /* Full-screen overlay — sits just below sidebar, above everything else */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 499;
+    backdrop-filter: blur(2px);
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+  }
+  @media(max-width:768px){ .sidebar-overlay{top:0;} }
+  .sidebar-overlay.show { display: block; animation: fadeInOverlay .25s ease both; }
+  @keyframes fadeInOverlay{from{opacity:0;}to{opacity:1;}}
+
+  /* Close X — absolute inside sidebar, always visible when sidebar is open */
+  .sidebar-close {
+    display: flex !important;
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff; font-size: 1.3rem;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    flex-shrink: 0;
+  }
+  .sidebar-close:active { background: rgba(255,255,255,.3); }
+
+  .sidebar ul li a { min-height: 50px; padding: 12px 14px; font-size: .92rem; }
+  .nav-icon { width: 36px; height: 36px; font-size: .88rem; }
+
+  .dashboard { flex-direction: column; }
+  .dashboard-content { padding: 14px; margin-left: 0; }
+  footer { margin-left: 0; width: 100%; position: relative; bottom: auto; }
+}
+
+@media(max-width:600px){
+  .sidebar {
+    top: 0 !important;
+    height: 100dvh !important;
+  }
+}
+
+/* ── 4. Bottom nav ── */
+#bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: var(--nav-bg);
+  border-top: 1px solid rgba(255,255,255,.09);
+  z-index: 1000;
+  align-items: stretch;
+  justify-content: space-around;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media(max-width:600px){
+  #bottom-nav { display: flex; }
+  body { padding-bottom: 60px; }
+  .hamburger { display: none !important; }
+}
+
+.bnav-item {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 3px;
+  border: none; background: none;
+  color: rgba(255,255,255,.4);
+  font-family: 'DM Sans', sans-serif;
+  font-size: .58rem; font-weight: 700;
+  letter-spacing: .3px; text-transform: uppercase;
+  cursor: pointer; padding: 6px 2px;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  transition: color .2s;
+}
+.bnav-item i { font-size: 1.15rem; transition: transform .2s cubic-bezier(.22,.68,0,1.4); }
+.bnav-item.active { color: var(--accent2); }
+.bnav-item.active i { transform: scale(1.2); }
+.bnav-item.active::after {
+  content: '';
+  position: absolute; top: 0; left: 25%; right: 25%; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 0 0 3px 3px;
+}
+.bnav-item:active i { transform: scale(.85); }
+
+/* ── 5. Content layout fixes for phones ── */
+@media(max-width:600px){
+  .dashboard-content { padding: 10px 10px 0; }
+
+  /* Page header */
+  .page-header h2 { font-size: 1.2rem; }
+  .page-header { margin-bottom: 12px; }
+
+  /* Cards */
+  .card { padding: 14px; border-radius: 14px; margin-bottom: 12px; }
+
+  /* Stats: 2 column grid */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat-card { padding: 14px 12px; border-radius: 14px; }
+  .stat-value { font-size: 1.7rem; }
+  .stat-label { font-size: .68rem; }
+
+  /* Jobs */
+  #jobListings.grid-view { grid-template-columns: 1fr; }
+  .job-item { padding: 14px; }
+  .job-item h4 { font-size: .9rem; padding-right: 36px; } /* room for bookmark */
+  .job-meta { gap: 8px; }
+  .pay-badge { font-size: .75rem; }
+
+  /* Wallet */
+  .wallet-hero { padding: 20px 16px; border-radius: 14px; }
+  .wallet-balance { font-size: 2rem; letter-spacing: -1px; }
+  .wallet-actions { grid-template-columns: 1fr; gap: 10px; }
+
+  /* AI section */
+  .ai-hero { padding: 18px 14px; border-radius: 14px; }
+  .ai-hero-content { flex-direction: column; gap: 10px; }
+  .ai-hero-badge { margin-left: 0; }
+  .ai-layout { grid-template-columns: 1fr; }
+  .ai-toolbar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 4px; }
+  .ai-toolbar::-webkit-scrollbar { display: none; }
+  .ai-mode-btn { flex-shrink: 0; }
+
+  /* Profile */
+  .profile-hero { padding: 20px 14px; }
+  .profile-form { grid-template-columns: 1fr; }
+  .stats-trio { grid-template-columns: repeat(3,1fr); }
+
+  /* Submit grid */
+  .submit-grid { grid-template-columns: 1fr !important; }
+
+  /* Jobs toolbar */
+  .jobs-toolbar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: 6px; }
+  .jobs-toolbar::-webkit-scrollbar { display: none; }
+  .filter-btn, .sort-btn { flex-shrink: 0; }
+  .sort-row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  .sort-row::-webkit-scrollbar { display: none; }
+  .ai-output-actions { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .ai-output-actions::-webkit-scrollbar { display: none; }
+  .ai-action-btn { flex-shrink: 0; }
+
+  /* About hero banner */
+  #dashboard .reveal[style*="linear-gradient"] > div:last-of-type { display: none; } /* hide badge column */
+  #dashboard .reveal > div > div:first-child { font-size: 1.5rem !important; }
+
+  /* Toast above bottom nav */
+  #toast-container { bottom: 70px; right: 10px; left: 10px; }
+  .toast { min-width: unset; width: 100%; }
+
+  /* Profile popup modal */
+  #pcard { padding: 22px 16px 20px; }
+
+  /* Perf buttons above bottom nav */
+  #perfToggle { bottom: 72px !important; }
+  #perfTraceBtn { bottom: 108px !important; }
+}
+
+/* ── 6. Very small phones (≤400px) ── */
+@media(max-width:400px){
+  .stat-value { font-size: 1.4rem; }
+  .stat-card { padding: 11px 10px; }
+  .card { padding: 11px; }
+  .wallet-balance { font-size: 1.7rem; }
+  .bnav-item { font-size: .52rem; }
+  .bnav-item i { font-size: 1rem; }
+}
+
+/* ── 7. Touch targets — all interactive elements ≥ 44px ── */
+@media(pointer: coarse){
+  input, select, textarea { font-size: 16px !important; } /* prevents iOS/Android zoom */
+  .btn-apply, .btn-generate, .btn-save, .btn-add, .btn-send, .btn-connect,
+  .filter-btn, .sort-btn, .ai-mode-btn, .ai-action-btn, .theme-btn {
+    min-height: 44px;
+  }
+  .notif-btn { width: 44px; height: 44px; }
+  .job-bookmark { width: 40px; height: 40px; border-radius: 10px; top: 12px; right: 12px; }
+  .sidebar ul li a { min-height: 50px; }
+  .pay-filter input[type=range]::-webkit-slider-thumb { width: 24px; height: 24px; }
+  .accent-dot { width: 22px; height: 22px; }
+  .view-btn { width: 40px; height: 40px; }
+  .tx-item { padding: 14px 0; }
+}
+
+/* ── 8. Kill hover-stuck states on touch ── */
+@media(hover: none){
+  .job-item:hover { transform: none !important; box-shadow: none !important; border-color: var(--border) !important; }
+  .card:hover:not(.no-lift) { transform: none !important; box-shadow: none !important; }
+  .wallet-hero:hover .wallet-balance { text-shadow: none; }
+  [data-tip]:hover::after, [data-tip]:hover::before { display: none; }
+  .sidebar ul li a:hover { transform: none; }
+  .btn-apply:hover, .btn-generate:hover, .btn-save:hover { transform: none; }
+}
+
+/* ── 9. Active feedback on touch (feels native) ── */
+@media(hover: none){
+  .job-item:active { opacity: .82; }
+  .card:active { opacity: .88; }
+  .bnav-item:active { background: rgba(255,255,255,.06); border-radius: 10px; }
+}
+
+/* sidebar-close only shows on mobile/tablet */
+@media(min-width:901px){ .sidebar-close { display: none !important; } }
 </style>
 </head>
 <body>
@@ -1423,6 +1812,25 @@ function psaveF(){
 }
 </script>
 
+<!-- ===================== BOTTOM NAV (≤600px only) ===================== -->
+<nav id="bottom-nav" aria-label="Mobile navigation">
+  <button class="bnav-item active" id="bnav-dashboard" onclick="showSection('dashboard')" aria-label="About">
+    <i class="fa-solid fa-circle-info"></i><span>About</span>
+  </button>
+  <button class="bnav-item" id="bnav-jobs" onclick="showSection('jobs')" aria-label="Jobs">
+    <i class="fa-solid fa-briefcase"></i><span>Jobs</span>
+  </button>
+  <button class="bnav-item" id="bnav-ai" onclick="showSection('ai')" aria-label="AI">
+    <i class="fa-solid fa-wand-magic-sparkles"></i><span>AI</span>
+  </button>
+  <button class="bnav-item" id="bnav-wallet" onclick="showSection('wallet')" aria-label="Wallet">
+    <i class="fa-solid fa-wallet"></i><span>Wallet</span>
+  </button>
+  <button class="bnav-item" id="bnav-menu" onclick="toggleMobileSidebar()" aria-label="Menu">
+    <i class="fa-solid fa-bars"></i><span>Menu</span>
+  </button>
+</nav>
+
 <!-- Animated background blobs -->
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
@@ -1434,10 +1842,12 @@ function psaveF(){
     <div class="logo-icon"><i class="fa-solid fa-feather-pointed"></i></div>
     WriteWork
   </div>
-  <div class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
   <nav>
-    <!-- Accent color picker -->
-    <div class="accent-picker" data-tip="Choose accent colour">
+    <!-- Hamburger (tablet 600-900px) -->
+    <div class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></div>
+
+    <!-- Accent color picker - moved to sidebar, hidden in header -->
+    <div class="accent-picker header-controls" data-tip="Choose accent colour" style="display:none;">
       <div class="accent-dot active" style="background:#7c3aed;" data-accent="purple" onclick="setAccent('purple',this)" title="Purple"></div>
       <div class="accent-dot" style="background:#2563eb;" data-accent="blue"   onclick="setAccent('blue',this)"   title="Blue"></div>
       <div class="accent-dot" style="background:#0d9488;" data-accent="teal"   onclick="setAccent('teal',this)"   title="Teal"></div>
@@ -1445,8 +1855,8 @@ function psaveF(){
       <div class="accent-dot" style="background:#d97706;" data-accent="amber"  onclick="setAccent('amber',this)"  title="Amber"></div>
     </div>
 
-    <!-- Dark/Light toggle -->
-    <div class="nav-controls">
+    <!-- Dark/Light toggle - moved to sidebar, hidden in header -->
+    <div class="nav-controls header-controls" style="display:none;">
       <button class="theme-btn active" id="lightBtn" onclick="setTheme('light')" data-tip="Light mode"><i class="fa-solid fa-sun"></i></button>
       <button class="theme-btn" id="darkBtn"  onclick="setTheme('dark')"  data-tip="Dark mode"><i class="fa-solid fa-moon"></i></button>
     </div>
@@ -1475,6 +1885,8 @@ function psaveF(){
 <!-- ===================== LAYOUT ===================== -->
 <div class="dashboard">
   <aside class="sidebar">
+    <!-- close button for mobile -->
+    <button class="sidebar-close" aria-label="Close menu">&times;</button>
     <!-- Logged-in user block -->
     <div class="sidebar-user">
       <img id="sidebarAvatar" class="sidebar-user-avatar" src="" alt="avatar">
@@ -1498,7 +1910,7 @@ function psaveF(){
         <div class="nav-icon"><i class="fa-solid fa-user"></i></div> Profile
       </a></li>
       <li><a onclick="showSection('ai')" id="nav-ai">
-        <div class="nav-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div> AI Writer <span class="ai-nav-badge">NEW</span>
+        <div class="nav-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div> AI Writer <span class="ai-nav-badge" style="background:rgba(245,158,11,0.2);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);">Sample</span>
       </a></li>
       <li><a onclick="showSection('submit')" id="nav-submit">
         <div class="nav-icon"><i class="fa-solid fa-upload"></i></div> Submit Work
@@ -1510,7 +1922,54 @@ function psaveF(){
       <div class="pulse-dot" style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></div>
       Online &amp; Active
     </div>
+    
+    <!-- Header controls moved to sidebar -->
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-label">Settings</div>
+    <div style="padding:0 8px;margin-bottom:12px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <button class="sidebar-theme-btn active" id="sidebarLightBtn" onclick="setTheme('light')" title="Light mode"><i class="fa-solid fa-sun"></i></button>
+        <button class="sidebar-theme-btn" id="sidebarDarkBtn" onclick="setTheme('dark')" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:99px;">
+        <div class="sidebar-accent-dot active" style="background:#7c3aed;" onclick="setAccent('purple',this)" title="Purple"></div>
+        <div class="sidebar-accent-dot" style="background:#2563eb;" onclick="setAccent('blue',this)" title="Blue"></div>
+        <div class="sidebar-accent-dot" style="background:#0d9488;" onclick="setAccent('teal',this)" title="Teal"></div>
+        <div class="sidebar-accent-dot" style="background:#e11d48;" onclick="setAccent('rose',this)" title="Rose"></div>
+        <div class="sidebar-accent-dot" style="background:#d97706;" onclick="setAccent('amber',this)" title="Amber"></div>
+      </div>
+    </div>
+    <div class="sidebar-developers">
+      <div class="sidebar-developers-label">Developers</div>
+      <div class="sidebar-developers-names">Denis &amp; George</div>
+    </div>
+    <!-- APK Download -->
+    <div style="padding:0 8px;margin-top:12px;">
+      <div style="font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);padding:0 4px;margin-bottom:6px;">Sample Android App</div>
+      <a href="https://www.mediafire.com/file/rkhuq4j5muxcwc5/writework-2.0.0-arm64-v8a_armeabi-v7a-debug.apk/file" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;padding:11px 14px;background:linear-gradient(135deg,rgba(124,58,237,0.18),rgba(168,85,247,0.12));border:1px solid rgba(124,58,237,0.3);border-radius:12px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(124,58,237,0.28),rgba(168,85,247,0.2))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(124,58,237,0.18),rgba(168,85,247,0.12))'">
+        <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px var(--glow);">
+          <i class="fa-solid fa-android" style="color:#fff;font-size:.9rem;"></i>
+        </div>
+        <div style="min-width:0;">
+          <div style="font-size:.78rem;font-weight:700;color:var(--accent2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Download APK</div>
+          <div style="font-size:.66rem;color:var(--muted);white-space:nowrap;">v2.0.0 · Sample app for this site</div>
+        </div>
+        <i class="fa-solid fa-arrow-down" style="color:var(--accent2);font-size:.75rem;margin-left:auto;flex-shrink:0;"></i>
+      </a>
+    </div>
+    <div style="padding:0 8px;margin-top:16px;">
+      <!-- Notification bell for mobile (sidebar) -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px 14px;cursor:pointer;" onclick="toggleNotifications(); document.querySelector('.sidebar').classList.remove('open'); document.getElementById('sidebarOverlay').classList.remove('show');">
+        <span style="display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;color:var(--text);"><i class="fa-solid fa-bell" style="color:var(--accent2);font-size:.9rem;"></i> Notifications</span>
+        <span id="sidebarNotifBadge" style="background:#f43f5e;color:#fff;min-width:20px;height:20px;border-radius:99px;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;">0</span>
+      </div>
+      <button onclick="handleLogout()" class="btn-logout" style="width:100%;justify-content:center;border:none;">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
   </aside>
+  <!-- Sidebar overlay — tapping this closes the sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <main class="dashboard-content">
 
@@ -1536,6 +1995,10 @@ function psaveF(){
           <div style="margin-left:auto;display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
             <div style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#34d399;padding:6px 16px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:6px;"><span style="width:7px;height:7px;border-radius:50%;background:#34d399;display:inline-block;"></span>100% Free to Use</div>
             <div style="background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);color:#c4b5fd;padding:6px 16px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;text-align:center;">AI-Powered</div>
+            <a href="https://www.mediafire.com/file/rkhuq4j5muxcwc5/writework-2.0.0-arm64-v8a_armeabi-v7a-debug.apk/file" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;padding:8px 18px;border-radius:99px;font-size:.78rem;font-weight:700;letter-spacing:.3px;text-decoration:none;box-shadow:0 6px 18px rgba(124,58,237,0.45);transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 26px rgba(124,58,237,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 18px rgba(124,58,237,0.45)'">
+              <i class="fa-solid fa-android"></i> Download APK v2.0.0
+            </a>
+            <div style="font-size:.65rem;color:rgba(255,255,255,0.45);text-align:center;line-height:1.5;max-width:160px;">Sample Android app<br>companion for this website</div>
           </div>
         </div>
       </div>
@@ -1573,7 +2036,7 @@ function psaveF(){
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:4px;">
           <div style="display:flex;align-items:flex-start;gap:14px;padding:16px;border-radius:14px;background:var(--surface2);border:1px solid var(--border);">
             <div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;flex-shrink:0;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <div><h5 style="font-family:'Syne',sans-serif;font-weight:700;color:var(--ink);margin-bottom:4px;font-size:.88rem;">Free AI Writer</h5><p style="font-size:.78rem;color:var(--muted);line-height:1.5;">Generate, improve, outline and brainstorm content — no API key needed, completely free.</p></div>
+            <div><h5 style="font-family:'Syne',sans-serif;font-weight:700;color:var(--ink);margin-bottom:4px;font-size:.88rem;">AI Writer — Sample Drafts</h5><p style="font-size:.78rem;color:var(--muted);line-height:1.5;">Generate sample drafts, outlines and ideas to guide your writing. <strong style="color:#d97706;">Always rewrite in your own voice</strong> — AI output is for reference only, not for direct submission to clients.</p></div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:14px;padding:16px;border-radius:14px;background:var(--surface2);border:1px solid var(--border);">
             <div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;flex-shrink:0;"><i class="fa-solid fa-briefcase"></i></div>
@@ -1605,7 +2068,7 @@ function psaveF(){
         <p style="font-size:.85rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 18px;">WriteWork was created to empower writers across Africa and beyond — giving everyone access to real earning opportunities and professional AI writing tools, for free.</p>
         <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
           <button class="btn-apply" onclick="showSection('jobs')" style="padding:11px 22px;"><i class="fa-solid fa-briefcase" style="margin-right:7px;"></i>Browse Jobs</button>
-          <button class="btn-apply" onclick="showSection('ai')" style="padding:11px 22px;background:linear-gradient(135deg,#a855f7,#7c3aed);"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:7px;"></i>Try AI Writer</button>
+          <button class="btn-apply" onclick="showSection('ai')" style="padding:11px 22px;background:linear-gradient(135deg,#a855f7,#7c3aed);"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:7px;"></i>Try AI Sample Drafts</button>
         </div>
       </div>
 
@@ -1806,10 +2269,10 @@ function psaveF(){
         <div class="ai-hero-content">
           <div class="ai-hero-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
           <div class="ai-hero-text">
-            <h2>AI Writing Assistant</h2>
-            <p>Generate professional writing content for any of your jobs instantly. Pick a job, describe your needs, and let AI do the heavy lifting.</p>
+            <h2>AI Writing Assistant — Sample & Reference Only</h2>
+            <p>Use this tool to generate sample drafts, writing references, and example content to guide your own work. <strong style="color:#fbbf24;">AI-generated content is not intended to be copied and sent directly to clients.</strong> Always review, personalise, and rewrite in your own voice before submitting any work.</p>
           </div>
-          <div class="ai-hero-badge">100% Free · No API Key</div>
+          <div class="ai-hero-badge">✏️ For Reference Use Only</div>
         </div>
       </div>
 
@@ -1829,20 +2292,31 @@ function psaveF(){
         </button>
       </div>
 
+      <!-- ⚠️ Sample Use Disclaimer -->
+      <div style="background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(217,119,6,0.08));border:1.5px solid rgba(245,158,11,0.35);border-radius:14px;padding:16px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,#d97706,#f59e0b);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:#fff;box-shadow:0 4px 12px rgba(245,158,11,0.4);">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div>
+          <p style="font-family:'Syne',sans-serif;font-weight:700;color:#d97706;font-size:.88rem;margin-bottom:5px;letter-spacing:-.2px;">For Sample &amp; Reference Use Only — Do Not Send Directly to Clients</p>
+          <p style="font-size:.8rem;color:var(--muted);line-height:1.6;">The AI Writer generates <strong>example and reference drafts</strong> to help spark ideas, guide your structure, and show you what a piece of content could look like. It is <strong>not a finished product</strong>. Every piece of AI-generated content must be thoroughly reviewed, edited, personalised, and rewritten in your own voice before it is submitted to any client. Submitting raw AI output as your own completed work is not acceptable and may result in job cancellation.</p>
+        </div>
+      </div>
+
       <!-- Main AI Panel -->
       <div class="ai-layout">
 
         <!-- Input Column -->
         <div class="ai-input-panel">
-          <div class="ai-panel-label"><i class="fa-solid fa-pen-nib"></i> Your Instructions</div>
+          <div class="ai-panel-label"><i class="fa-solid fa-pen-nib"></i> Describe Your Sample Draft</div>
 
-          <label style="font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:6px;">Select Job (optional)</label>
+          <label style="font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:6px;">Select Job (optional — for reference)</label>
           <select class="ai-job-select" id="aiJobSelect" onchange="prefillAIPrompt()">
             <option value="">— Choose a job to auto-fill prompt —</option>
           </select>
 
           <label style="font-size:.72rem;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:6px;">Your Prompt / Instructions</label>
-          <textarea class="ai-prompt-area" id="aiPrompt" placeholder="Describe what you need… e.g. 'Write a 500-word lifestyle blog post about remote work trends in 2025, with an upbeat professional tone.'"></textarea>
+          <textarea class="ai-prompt-area" id="aiPrompt" placeholder="Describe what you need a sample of… e.g. 'Write a sample 500-word lifestyle blog post about remote work trends in 2025, professional tone.' Remember: use AI output as a reference draft to inspire and guide your own writing — not as finished work to send to clients."></textarea>
 
           <div class="ai-options-row">
             <select class="ai-select-sm" id="aiTone">
@@ -1862,21 +2336,21 @@ function psaveF(){
           </div>
 
           <button class="btn-generate" id="generateBtn" onclick="generateContent()">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate with AI
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Sample Draft
           </button>
         </div>
 
         <!-- Output Column -->
         <div class="ai-output-panel">
           <div class="ai-panel-label" style="justify-content:space-between;">
-            <span><i class="fa-solid fa-file-lines"></i> AI Output</span>
+            <span><i class="fa-solid fa-file-lines"></i> Sample AI Draft — Edit Before Use</span>
             <span id="aiWordCount" style="font-size:.75rem;color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;"></span>
           </div>
 
           <div class="ai-output-box" id="aiOutput">
             <div class="ai-output-placeholder">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
-              <p>Your AI-generated content will appear here.<br>Fill in the form and click Generate.</p>
+              <p>Your AI-generated <strong>sample draft</strong> will appear here.<br><span style="font-size:.82em;opacity:.75;">Use it as a reference and rewrite it in your own voice — do not send AI output directly to clients.</span></p>
             </div>
           </div>
 
@@ -1897,9 +2371,9 @@ function psaveF(){
 
       <!-- Saved Outputs -->
       <div class="card reveal">
-        <div class="card-title">Saved AI Outputs</div>
+        <div class="card-title">Saved Sample Drafts</div>
         <div id="aiHistoryList">
-          <div class="empty-state"><i class="fa-solid fa-wand-magic-sparkles"></i><p>No saved outputs yet. Generate content and click "Save" to keep it here.</p></div>
+          <div class="empty-state"><i class="fa-solid fa-wand-magic-sparkles"></i><p>No saved sample drafts yet. Generate a reference draft and click "Save" to keep it here for editing and inspiration.</p></div>
         </div>
       </div>
 
@@ -2138,20 +2612,32 @@ function setTheme(t){
   localStorage.setItem('wwTheme', t);
   document.getElementById('lightBtn').classList.toggle('active', t==='light');
   document.getElementById('darkBtn').classList.toggle('active', t==='dark');
+  document.getElementById('sidebarLightBtn').classList.toggle('active', t==='light');
+  document.getElementById('sidebarDarkBtn').classList.toggle('active', t==='dark');
 }
 function setAccent(a, el){
   document.documentElement.setAttribute('data-accent', a);
   localStorage.setItem('wwAccent', a);
   document.querySelectorAll('.accent-dot').forEach(d=>d.classList.remove('active'));
+  document.querySelectorAll('.sidebar-accent-dot').forEach(d=>d.classList.remove('active'));
   el.classList.add('active');
+  // Also update sidebar accent dots
+  const sidebarDot = document.querySelector(`.sidebar-accent-dot[onclick*="'${a}'"]`);
+  if(sidebarDot) sidebarDot.classList.add('active');
 }
 (function initTheme(){
   const t = localStorage.getItem('wwTheme')||'light';
   const a = localStorage.getItem('wwAccent')||'purple';
   document.documentElement.setAttribute('data-theme', t);
   document.documentElement.setAttribute('data-accent', a);
-  if(t==='dark'){ document.getElementById('lightBtn').classList.remove('active'); document.getElementById('darkBtn').classList.add('active'); }
+  if(t==='dark'){ 
+    document.getElementById('lightBtn').classList.remove('active'); 
+    document.getElementById('darkBtn').classList.add('active'); 
+  }
+  document.getElementById('sidebarLightBtn').classList.toggle('active', t==='light');
+  document.getElementById('sidebarDarkBtn').classList.toggle('active', t==='dark');
   document.querySelectorAll('.accent-dot').forEach(d=>{ if(d.dataset.accent===a) d.classList.add('active'); else d.classList.remove('active'); });
+  document.querySelectorAll('.sidebar-accent-dot').forEach(d=>{ if(d.getAttribute('onclick')?.includes(`'${a}'`)) d.classList.add('active'); else d.classList.remove('active'); });
 })();
 
 /* ===================== NAVIGATION ===================== */
@@ -2476,7 +2962,11 @@ function addNotification(text){
   p.textContent=text;
   list.prepend(p);
   const c=parseInt(document.getElementById('notifCount').textContent)||0;
-  setText('notifCount', c+1);
+  const newCount = c+1;
+  setText('notifCount', newCount);
+  // sync sidebar bell badge
+  const sb=document.getElementById('sidebarNotifBadge');
+  if(sb) sb.textContent=newCount;
 }
 function toggleNotifications(){
   const d=document.getElementById('notificationDropdown');
@@ -2487,6 +2977,9 @@ function toggleNotifications(){
 function clearNotifications(){
   setHtml('notificationList', '<p>No notifications yet</p>');
   setText('notifCount', '0');
+  // sync sidebar bell badge
+  const sb=document.getElementById('sidebarNotifBadge');
+  if(sb) sb.textContent='0';
 }
 document.addEventListener('click',e=>{
   if(!e.target.closest('.notif-wrap'))
@@ -2526,6 +3019,17 @@ function initReveal(){
 
 /* ===================== ANIMATED BG CANVAS ===================== */
 (function initCanvas(){
+  // Respect user/system preferences and mobile/save-data to avoid expensive animations
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent);
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (prefersReduced || isIOS || saveData) {
+    document.documentElement.classList.add('low-power');
+    // create a noop controller so other code can call stop/start safely
+    window.__ww_bgCanvasController = { start: ()=>{}, stop: ()=>{}, remove: ()=>{} };
+    return; // skip canvas on constrained devices
+  }
+
   const canvas=document.createElement('canvas');
   canvas.id='bg-canvas';
   document.body.prepend(canvas);
@@ -2540,9 +3044,9 @@ function initReveal(){
     constructor(){this.reset();}
     reset(){
       this.x=Math.random()*W; this.y=Math.random()*H;
-      this.r=Math.random()*1.8+0.4;
-      this.vx=(Math.random()-.5)*0.25; this.vy=(Math.random()-.5)*0.25;
-      this.alpha=Math.random()*0.35+0.08;
+      this.r=Math.random()*1.2+0.3;
+      this.vx=(Math.random()-.5)*0.2; this.vy=(Math.random()-.5)*0.2;
+      this.alpha=Math.random()*0.28+0.06;
     }
     update(){
       this.x+=this.vx; this.y+=this.vy;
@@ -2557,14 +3061,32 @@ function initReveal(){
     }
   }
 
-  for(let i=0;i<90;i++) particles.push(new Particle());
+  // Scale particle count to viewport but keep it minimal for performance
+  const PARTICLE_COUNT = Math.max(12, Math.min(30, Math.floor((window.innerWidth * window.innerHeight) / 300000)));
+  for(let i=0;i<PARTICLE_COUNT;i++) particles.push(new Particle());
 
+  let rafId = null;
   function animate(){
     ctx.clearRect(0,0,W,H);
     particles.forEach(p=>{p.update();p.draw();});
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
   }
-  animate();
+  function startAnim(){ if (!rafId) rafId = requestAnimationFrame(animate); }
+  function stopAnim(){ if (rafId) cancelAnimationFrame(rafId); rafId = null; }
+  // Pause animation when page is not visible to reduce CPU
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAnim(); else startAnim();
+  });
+
+  // Expose controller to global so perf toggle can stop/remove canvas
+  window.__ww_bgCanvasController = {
+    start: startAnim,
+    stop: stopAnim,
+    remove: () => { stopAnim(); try{ canvas.remove(); }catch(e){} }
+  };
+
+  // Start
+  startAnim();
 })();
 
 function quickAIGenerate(jobId, jobTitle) {
@@ -3303,47 +3825,74 @@ document.addEventListener('click', function(e) {
 // ── MOBILE SIDEBAR TOGGLE ─────────────────────────────────────
 function initMobileSidebar() {
   const sidebar = document.querySelector('.sidebar');
-  const ham = document.querySelector('.hamburger');
-  if (!sidebar || !ham) return;
-  let overlay = document.querySelector('.sidebar-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.className = 'sidebar-overlay';
-    document.body.appendChild(overlay);
-  }
+  const overlay = document.getElementById('sidebarOverlay');
+  const closeBtn = sidebar ? sidebar.querySelector('.sidebar-close') : null;
+  const ham = document.getElementById('hamburger');
 
-  // helper to ensure sidebar is closed on narrow displays
-  function updateSidebarState() {
-    if (window.innerWidth <= 900) {
-      sidebar.classList.remove('open');
-      ham.classList.remove('open');
-      overlay.classList.remove('show');
-    }
-  }
-  updateSidebarState();
-  window.addEventListener('resize', updateSidebarState);
+  if (!sidebar || !overlay) return;
 
-  ham.addEventListener('click', () => {
-    const open = sidebar.classList.toggle('open');
-    ham.classList.toggle('open', open);
-    overlay.classList.toggle('show', open);
-  });
-  overlay.addEventListener('click', () => {
+  function closeSidebar() {
     sidebar.classList.remove('open');
-    ham.classList.remove('open');
     overlay.classList.remove('show');
-  });
-  // Close sidebar when a nav link is tapped on mobile
+    if (ham) ham.classList.remove('open');
+    const menuBtn = document.getElementById('bnav-menu');
+    if (menuBtn) menuBtn.classList.remove('active');
+  }
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    overlay.classList.add('show');
+    if (ham) ham.classList.add('open');
+    document.querySelectorAll('.bnav-item').forEach(b => b.classList.remove('active'));
+    const menuBtn = document.getElementById('bnav-menu');
+    if (menuBtn) menuBtn.classList.add('active');
+  }
+
+  window.toggleMobileSidebar = function() {
+    sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+  };
+
+  // Overlay click closes sidebar
+  overlay.onclick = closeSidebar;
+
+  // X button closes sidebar
+  if (closeBtn) closeBtn.onclick = closeSidebar;
+
+  // Hamburger opens/closes
+  if (ham) ham.onclick = window.toggleMobileSidebar;
+
+  // Nav links close sidebar
   sidebar.querySelectorAll('li a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 900) {
-        sidebar.classList.remove('open');
-        ham.classList.remove('open');
-        overlay.classList.remove('show');
-      }
-    });
+    link.addEventListener('click', closeSidebar);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeSidebar();
   });
 }
+
+// ── BOTTOM NAV SYNC ───────────────────────────────────────────
+function syncBottomNav(sectionId) {
+  document.querySelectorAll('.bnav-item').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('bnav-' + sectionId);
+  if (btn) btn.classList.add('active');
+}
+
+// Wrap showSection so bottom nav stays in sync
+document.addEventListener('DOMContentLoaded', function() {
+  const _orig = window.showSection;
+  if (typeof _orig === 'function') {
+    window.showSection = function(id) {
+      _orig(id);
+      syncBottomNav(id);
+      // If sidebar is open on phones, close it after navigating
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar && sidebar.classList.contains('open') && window.innerWidth <= 600) {
+        if (typeof window.toggleMobileSidebar === 'function') window.toggleMobileSidebar();
+      }
+    };
+  }
+});
 
 // ── AVATAR INITIALS FALLBACK ──────────────────────────────────
 function initAvatarFallbacks() {
@@ -3389,6 +3938,97 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
 });
 
+</script>
+<script>
+// Performance toggle: quick way to force low-power mode for testing
+(function(){
+  try{
+    const btn = document.createElement('button');
+    btn.id = 'perfToggle';
+    btn.title = 'Toggle performance mode (Normal → Low → Ultra)';
+    Object.assign(btn.style, {
+      position: 'fixed', right: '12px', bottom: '90px', zIndex: 999999, padding: '8px 10px',
+      borderRadius: '10px', background: '#222', color: '#fff', border: 'none', cursor: 'pointer',
+      boxShadow: '0 6px 18px rgba(0,0,0,.3)', fontWeight:700
+    });
+    document.body.appendChild(btn);
+
+    // mode: '0' = normal, '1' = low-power, '2' = ultra-low-power
+    function applyMode(mode){
+      const m = String(mode || '0');
+      localStorage.setItem('ww_perf_mode', m);
+      // clear both classes first
+      document.documentElement.classList.remove('low-power','ultra-low-power');
+      if (m === '1') document.documentElement.classList.add('low-power');
+      if (m === '2') document.documentElement.classList.add('ultra-low-power');
+
+      // Manage canvas controller
+      try{
+        const ctrl = window.__ww_bgCanvasController;
+        if (m === '0') { if (ctrl && typeof ctrl.start === 'function') ctrl.start(); }
+        else if (m === '1') { if (ctrl && typeof ctrl.stop === 'function') ctrl.stop(); }
+        else if (m === '2') { if (ctrl && typeof ctrl.remove === 'function') ctrl.remove(); }
+      }catch(e){console.error('perf applyMode ctrl',e);} 
+
+      // Update button visuals
+      const labels = { '0':'⚡ Normal', '1':'⚡ Low', '2':'⚡ Ultra' };
+      const colors = { '0':'#222','1':'#0b8','2':'#e04' };
+      const fg = m === '2' ? '#140' : (m === '1' ? '#042' : '#fff');
+      btn.textContent = labels[m] || labels['0'];
+      btn.style.background = colors[m] || colors['0'];
+      btn.style.color = fg;
+    }
+
+    btn.addEventListener('click', ()=>{
+      const cur = localStorage.getItem('ww_perf_mode') || '0';
+      const next = cur === '0' ? '1' : cur === '1' ? '2' : '0';
+      applyMode(next);
+    });
+
+    // initialize from storage (default 0)
+    applyMode(localStorage.getItem('ww_perf_mode') || '0');
+    // Expose a simple API for external testing/debugging
+    window.__ww_perf = {
+      setMode: applyMode,
+      getMode: () => localStorage.getItem('ww_perf_mode') || '0'
+    };
+  }catch(e){console.error('perf toggle init', e);} 
+})();
+  // Performance observers: collect long tasks, layout shifts and paint timings
+  try{
+    const perfLogBtn = document.createElement('button');
+    perfLogBtn.id = 'perfTraceBtn';
+    perfLogBtn.title = 'Download perf trace (long tasks & layout shifts)';
+    perfLogBtn.textContent = 'Trace';
+    Object.assign(perfLogBtn.style, { position:'fixed', right:'12px', bottom:'124px', zIndex:999999, padding:'6px 8px', borderRadius:'8px', background:'#444', color:'#fff', border:'none', cursor:'pointer', boxShadow:'0 6px 18px rgba(0,0,0,.3)', fontWeight:700 });
+    document.body.appendChild(perfLogBtn);
+
+    const logs = { longtasks: [], layoutShifts: [] };
+    if ('PerformanceObserver' in window) {
+      try{
+        const lt = new PerformanceObserver(list => {
+          for (const e of list.getEntries()) {
+            logs.longtasks.push({ name: e.name, start: e.startTime, duration: e.duration, attribution: e.attribution || [] });
+          }
+        });
+        lt.observe({ type: 'longtask', buffered: true });
+      }catch(e){console.warn('longtask observer failed', e);} 
+
+      try{
+        const ls = new PerformanceObserver(list => {
+          for (const e of list.getEntries()) logs.layoutShifts.push({ value: e.value, start: e.startTime, sources: e.sources });
+        });
+        ls.observe({ type: 'layout-shift', buffered: true });
+      }catch(e){/* not all browsers support layout-shift observer */}
+    }
+
+    perfLogBtn.addEventListener('click', ()=>{
+      const payload = { userAgent: navigator.userAgent, mode: localStorage.getItem('ww_perf_mode')||'0', timestamp: new Date().toISOString(), logs };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'ww-perf-trace.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+  }catch(e){console.warn('perf trace init failed', e);} 
 </script>
 </body>
 </html>

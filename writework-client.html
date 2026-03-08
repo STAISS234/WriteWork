@@ -35,6 +35,12 @@
   --sidebar-bg:#ffffff; --sidebar-border:var(--border);
   --input-bg:#f5f4f0; --input-focus:#fff;
   --blob1:rgba(124,58,237,0.07); --blob2:rgba(14,165,233,0.05); --blob3:rgba(16,185,129,0.04);
+  --glass:rgba(255,255,255,0.7);
+  --glass-border:rgba(255,255,255,0.2);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.12);
+  --shadow-glow:0 4px 20px rgba(124,58,237,0.15);
 }
 [data-theme="dark"] {
   --ink:#f0eeff; --ink2:#0d0d14;
@@ -45,10 +51,16 @@
   --sidebar-bg:#1c1c2e; --sidebar-border:rgba(255,255,255,0.06);
   --input-bg:#111118; --input-focus:#1a1a2e;
   --blob1:rgba(124,58,237,0.12); --blob2:rgba(14,165,233,0.08); --blob3:rgba(16,185,129,0.06);
+  --glass:rgba(28,28,46,0.8);
+  --glass-border:rgba(255,255,255,0.08);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow:0 4px 20px rgba(124,58,237,0.3);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .35s,color .35s;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;}
+body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg, var(--surface) 0%, var(--surface2) 50%, var(--surface) 100%);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .35s,color .35s;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;}
 input,select,textarea{-webkit-user-select:text;user-select:text;}
 
 ::-webkit-scrollbar{width:5px;}
@@ -88,12 +100,24 @@ html.ultra-low-power * { filter:none !important; }
 
 /* NAVBAR */
 header.navbar{
-  background:var(--nav-bg);
-  padding:0 36px;color:#fff;display:flex;justify-content:space-between;align-items:center;
-  height:68px;position:sticky;top:0;z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.07);
+  display:none;
 }
-@media(max-width:768px){header.navbar{padding:0 16px;height:56px;}}
+@media(max-width:900px){
+  header.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16px;
+    height:56px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:600;
+    background:var(--nav-bg);
+    box-shadow:0 2px 12px rgba(0,0,0,0.25);
+  }
+}
 @keyframes navDrop{from{transform:translateY(-100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
 .logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;gap:10px;color:#fff;}
 .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:transform .3s ease-out;box-shadow:0 4px 14px var(--glow);}
@@ -135,9 +159,10 @@ nav{display:flex;align-items:center;gap:10px;}
 .dashboard{display:flex;max-width:1400px;margin:0 auto;min-height:calc(100vh - 68px);position:relative;z-index:1;}
 
 /* SIDEBAR */
-.sidebar{width:260px;background:var(--sidebar-bg);border-right:1px solid var(--sidebar-border);padding:28px 18px;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;flex-shrink:0;transition:background .35s;}
+.sidebar{width:260px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-right:1px solid var(--glass-border);padding:28px 18px;position:fixed;top:0;left:0;height:100vh;overflow-y:auto;flex-shrink:0;transition:all .35s;box-shadow:var(--shadow-lg);}
 @media(max-width:1024px){.sidebar{width:240px;padding:20px 14px;}}
-@media(max-width:768px){.sidebar{display:none;}}
+
+
 @keyframes sideSlide{from{transform:translateX(-28px);opacity:0;}to{transform:translateX(0);opacity:1;}}
 .sidebar-user{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:rgba(124,58,237,0.05);border:1px solid var(--border);margin-bottom:18px;}
 .sidebar-user img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex-shrink:0;}
@@ -153,11 +178,33 @@ nav{display:flex;align-items:center;gap:10px;}
 .sidebar ul li a.active .nav-icon{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 12px var(--glow);}
 .sidebar-divider{height:1px;background:var(--border);margin:18px 0;}
 
+.sidebar-theme-btn {
+  flex:1;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;
+  padding:8px;
+  color:var(--muted);
+  cursor:pointer;
+  transition:all .2s;
+}
+.sidebar-theme-btn:hover { background:rgba(255,255,255,0.1);color:var(--text); }
+.sidebar-theme-btn.active { background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 10px var(--glow); }
+
+.sidebar-accent-dot {
+  width:16px;height:16px;border-radius:50%;
+  cursor:pointer;border:2px solid transparent;
+  transition:all .2s;
+}
+.sidebar-accent-dot:hover { transform:scale(1.3); }
+.sidebar-accent-dot.active { border-color:var(--text);transform:scale(1.15); }
+
 /* MAIN CONTENT */
-.dashboard-content{flex:1;padding:30px;overflow:hidden;}
-@media(max-width:1024px){.dashboard-content{padding:24px;}}
-@media(max-width:768px){.dashboard-content{padding:16px;}}
-@media(max-width:480px){.dashboard-content{padding:12px;}}
+.dashboard-content{flex:1;padding:30px;margin-left:260px;overflow-y:auto;overflow-x:hidden;height:100vh;display:flex;flex-direction:column;background:linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);}
+@media(max-width:1024px){.dashboard-content{padding:24px;margin-left:240px;}}
+@media(max-width:900px){.dashboard-content{margin-left:0;padding-top:72px;}}
+@media(max-width:768px){.dashboard-content{padding:72px 16px 16px;}}
+@media(max-width:480px){.dashboard-content{padding:68px 12px 12px;}}
 
 /* SECTION TRANSITIONS */
 .section{display:none;}
@@ -349,7 +396,7 @@ footer span { color:var(--accent2); font-weight:600; }
 .sidebar-user-name { font-family:'Syne',sans-serif; font-size:.82rem; font-weight:700; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block; line-height:1.3; }
 .sidebar-user-role { font-size:.65rem; color:#059669; font-weight:600; background:rgba(5,150,105,0.1); padding:1px 6px; border-radius:99px; display:inline-block; margin-top:2px; white-space:nowrap; }
 
-@media(max-width:900px){.form-grid{grid-template-columns:1fr;}.sidebar{display:none;}.dashboard-content{padding:20px;}}
+@media(max-width:900px){.form-grid{grid-template-columns:1fr;}.dashboard-content{padding:20px;}.nav-controls{display:none !important;} }
 
 /* ===== WALLET ===== */
 .wallet-hero{background:linear-gradient(135deg,#0f0a1e,#1a1235,#0d1f2e);border-radius:24px;padding:36px;text-align:center;margin-bottom:22px;border:1px solid rgba(124,58,237,0.18);box-shadow:0 12px 48px rgba(0,0,0,0.25);position:relative;overflow:hidden;}
@@ -489,7 +536,7 @@ footer span { color:var(--accent2); font-weight:600; }
 .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.35);transform:scale(0);animation:rippleAnim .55s ease-out;pointer-events:none;}
 @keyframes rippleAnim{to{transform:scale(4);opacity:0;}}
 /* ── MOBILE HAMBURGER ──────────────────────────────────── */
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:9px;width:36px;height:36px;align-items:center;justify-content:center;transition:all .2s;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:9px;width:44px;height:44px;min-width:44px;min-height:44px;align-items:center;justify-content:center;transition:all .2s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;}
 .hamburger:hover{background:rgba(255,255,255,.15);}
 .hamburger span{width:16px;height:2px;background:#fff;border-radius:99px;transition:all .3s cubic-bezier(.22,.68,0,1.2);}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -514,10 +561,24 @@ footer span { color:var(--accent2); font-weight:600; }
 .empty-state p{font-size:.85rem;max-width:280px;line-height:1.6;}
 @media(max-width:900px){
   .hamburger{display:flex;}
-  .sidebar{position:fixed!important;top:68px;left:0;z-index:500;transform:translateX(-100%);transition:transform .35s cubic-bezier(.22,.68,0,1.2);height:calc(100vh - 68px)!important;box-shadow:4px 0 32px rgba(0,0,0,.25);}
+  .sidebar{
+    position:fixed!important;top:0;left:0;z-index:700;
+    transform:translateX(-100%);
+    transition:transform .35s cubic-bezier(.22,.68,0,1.2);
+    height:100vh!important;
+    box-shadow:4px 0 32px rgba(0,0,0,.25);
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    background:var(--sidebar-bg)!important;
+    overflow-y:scroll!important;
+    -webkit-overflow-scrolling:touch!important;
+    touch-action:pan-y!important;
+    overscroll-behavior:contain;
+    pointer-events:auto!important;
+  }
   .sidebar.open{transform:translateX(0);}
-  .sidebar-overlay{display:none;position:fixed;inset:0;top:68px;background:rgba(0,0,0,.5);z-index:499;backdrop-filter:blur(2px);}
-  .sidebar-overlay.show{display:block;animation:fadeInOverlay .25s ease both;}
+  .sidebar-overlay{display:none;position:fixed;top:0;left:260px;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:650;pointer-events:none;}
+  .sidebar-overlay.show{display:block;pointer-events:auto;animation:fadeInOverlay .25s ease both;}
   @keyframes fadeInOverlay{from{opacity:0;}to{opacity:1;}}
 }
 
@@ -621,6 +682,7 @@ function psaveF(){
     <span class="logo-badge">CLIENT</span>
   </div>
   <nav>
+    <div class="hamburger"><span></span><span></span><span></span></div>
     <div class="nav-controls">
       <div class="accent-picker">
         <div class="accent-dot active" style="background:#7c3aed;" onclick="setAccent('purple',this)"></div>
@@ -655,6 +717,14 @@ function psaveF(){
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
+    <!-- Logo -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:0 8px;">
+      <div class="logo-icon" style="width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 4px 15px var(--glow);">
+        <i class="fa-solid fa-building" style="color:#fff;"></i>
+      </div>
+      <span style="font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--ink);">WriteWork</span>
+    </div>
+    
     <div class="sidebar-user">
       <div style="width:32px;height:32px;flex-shrink:0;border-radius:50%;overflow:hidden;border:2px solid var(--accent);font-size:.85rem;">
         <img id="sidebarAvatar" src="" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;">
@@ -695,6 +765,55 @@ function psaveF(){
         <span class="nav-icon"><i class="fa-solid fa-user-circle"></i></span> Profile Settings
       </a></li>
     </ul>
+    
+    <!-- Settings in sidebar -->
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-label">Settings</div>
+    <div style="padding:0 8px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <button class="sidebar-theme-btn active" id="sidebarLightBtn" onclick="setTheme('light')" title="Light mode"><i class="fa-solid fa-sun"></i></button>
+        <button class="sidebar-theme-btn" id="sidebarDarkBtn" onclick="setTheme('dark')" title="Dark mode"><i class="fa-solid fa-moon"></i></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:99px;">
+        <div class="sidebar-accent-dot active" style="background:#7c3aed;" onclick="setAccent('purple',this)" title="Purple"></div>
+        <div class="sidebar-accent-dot" style="background:#2563eb;" onclick="setAccent('blue',this)" title="Blue"></div>
+        <div class="sidebar-accent-dot" style="background:#0d9488;" onclick="setAccent('teal',this)" title="Teal"></div>
+        <div class="sidebar-accent-dot" style="background:#e11d48;" onclick="setAccent('rose',this)" title="Rose"></div>
+        <div class="sidebar-accent-dot" style="background:#d97706;" onclick="setAccent('amber',this)" title="Amber"></div>
+      </div>
+    </div>
+    <div style="padding:0 8px;margin-top:16px;">
+      <!-- Notification bell for mobile (sidebar) -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:10px 14px;cursor:pointer;" onclick="toggleNotifications();">
+        <span style="display:flex;align-items:center;gap:9px;font-size:.86rem;font-weight:600;color:var(--text);"><i class="fa-solid fa-bell" style="color:var(--accent2);font-size:.9rem;"></i> Notifications</span>
+        <span id="sidebarNotifBadge" style="background:#f43f5e;color:#fff;min-width:20px;height:20px;border-radius:99px;font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;">0</span>
+      </div>
+      <button onclick="handleLogout()" class="btn-logout" style="width:100%;justify-content:center;border:none;">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+      </button>
+    </div>
+    <div style="padding:8px;margin-top:14px;text-align:center;border-top:1px solid var(--border);padding-top:14px;">
+      <div style="font-size:.62rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Developed by</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;">
+        <span style="font-size:.75rem;font-weight:700;color:var(--accent2);background:rgba(124,58,237,0.1);border:1px solid var(--border);padding:3px 10px;border-radius:99px;">Denis</span>
+        <span style="font-size:.65rem;color:var(--muted);">&amp;</span>
+        <span style="font-size:.75rem;font-weight:700;color:var(--accent2);background:rgba(124,58,237,0.1);border:1px solid var(--border);padding:3px 10px;border-radius:99px;">George</span>
+      </div>
+    </div>
+    <!-- APK Download -->
+    <div style="padding:0 8px;margin-top:12px;margin-bottom:8px;">
+      <div style="font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);padding:0 4px;margin-bottom:6px;">Sample Android App</div>
+      <a href="https://www.mediafire.com/file/rkhuq4j5muxcwc5/writework-2.0.0-arm64-v8a_armeabi-v7a-debug.apk/file" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:9px;padding:11px 14px;background:linear-gradient(135deg,rgba(5,150,105,0.18),rgba(16,185,129,0.12));border:1px solid rgba(5,150,105,0.3);border-radius:12px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='linear-gradient(135deg,rgba(5,150,105,0.28),rgba(16,185,129,0.2))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(5,150,105,0.18),rgba(16,185,129,0.12))'">
+        <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px rgba(5,150,105,0.35);">
+          <i class="fa-solid fa-android" style="color:#fff;font-size:.9rem;"></i>
+        </div>
+        <div style="min-width:0;">
+          <div style="font-size:.78rem;font-weight:700;color:#10b981;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Download APK</div>
+          <div style="font-size:.66rem;color:var(--muted);white-space:nowrap;">v2.0.0 · Sample app for this site</div>
+        </div>
+        <i class="fa-solid fa-arrow-down" style="color:#10b981;font-size:.75rem;margin-left:auto;flex-shrink:0;"></i>
+      </a>
+    </div>
   </aside>
 
   <!-- MAIN CONTENT -->
@@ -1011,6 +1130,17 @@ function psaveF(){
             </div>
             <div class="about-hero-bio" id="aboutBio">No bio provided yet.</div>
             <div style="display:flex;gap:14px;margin-top:16px;flex-wrap:wrap;" id="aboutLinks"></div>
+            <!-- APK Download -->
+            <div style="margin-top:14px;">
+              <a href="https://www.mediafire.com/file/rkhuq4j5muxcwc5/writework-2.0.0-arm64-v8a_armeabi-v7a-debug.apk/file" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border-radius:99px;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(124,58,237,0.4);transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 26px rgba(124,58,237,0.55)'" onmouseout="this.style.transform='';this.style.boxShadow='0 6px 18px rgba(124,58,237,0.4)'">
+                <i class="fa-solid fa-android"></i> Download Android APK v2.0.0
+                <i class="fa-solid fa-arrow-down" style="font-size:.75rem;"></i>
+              </a>
+              <div style="font-size:.72rem;color:var(--muted);margin-top:7px;display:flex;align-items:center;gap:5px;">
+                <i class="fa-solid fa-circle-info" style="font-size:.65rem;color:var(--accent2);"></i>
+                This is a sample Android app companion for this website.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1307,12 +1437,17 @@ function setTheme(t) {
   localStorage.setItem('wwTheme', t);
   document.getElementById('lightBtn').classList.toggle('active', t === 'light');
   document.getElementById('darkBtn').classList.toggle('active', t === 'dark');
+  document.getElementById('sidebarLightBtn').classList.toggle('active', t === 'light');
+  document.getElementById('sidebarDarkBtn').classList.toggle('active', t === 'dark');
 }
 function setAccent(a, el) {
   document.documentElement.setAttribute('data-accent', a);
   localStorage.setItem('wwAccent', a);
   document.querySelectorAll('.accent-dot').forEach(d => d.classList.remove('active'));
+  document.querySelectorAll('.sidebar-accent-dot').forEach(d => d.classList.remove('active'));
   el.classList.add('active');
+  const sidebarDot = document.querySelector(`.sidebar-accent-dot[onclick*="'${a}'"]`);
+  if(sidebarDot) sidebarDot.classList.add('active');
 }
 (function initTheme() {
   const t = localStorage.getItem('wwTheme') || 'light';
@@ -1320,12 +1455,27 @@ function setAccent(a, el) {
   document.documentElement.setAttribute('data-theme', t);
   document.documentElement.setAttribute('data-accent', a);
   document.getElementById(t === 'dark' ? 'darkBtn' : 'lightBtn').classList.add('active');
+  document.getElementById('sidebarLightBtn').classList.toggle('active', t === 'light');
+  document.getElementById('sidebarDarkBtn').classList.toggle('active', t === 'dark');
+  document.querySelectorAll('.accent-dot').forEach(d => { if(d.dataset.accent === a) d.classList.add('active'); else d.classList.remove('active'); });
+  document.querySelectorAll('.sidebar-accent-dot').forEach(d => { if(d.getAttribute('onclick')?.includes(`'${a}'`)) d.classList.add('active'); else d.classList.remove('active'); });
   document.querySelectorAll('.accent-dot').forEach(d => { d.classList.toggle('active', d.dataset.accent === a); });
 })();
 
 /* ===================== NAVIGATION ===================== */
 const sectionOrder = ['overview','post-job','my-jobs','submissions','wallet','about','profile'];
 function showSection(id) {
+  // Close mobile sidebar when navigating
+  var _sidebar = document.querySelector('.sidebar');
+  var _ham = document.querySelector('.hamburger');
+  var _overlay = document.querySelector('.sidebar-overlay');
+  if (_sidebar && window.innerWidth <= 900) {
+    _sidebar.classList.remove('open');
+    if (_ham) _ham.classList.remove('open');
+    if (_overlay) _overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    document.body.style.touchAction = '';
+  }
   const prev    = document.querySelector('.section.active');
   const prevId  = prev ? prev.id : null;
   const prevIdx = sectionOrder.indexOf(prevId);
@@ -1417,7 +1567,8 @@ function filterMyJobs(status, btn) {
 
 function renderMyJobs() {
   const container = document.getElementById('myJobsList');
-  const query = (document.getElementById('myJobSearch')?.value || '').toLowerCase();
+  var _jobInput = document.getElementById('myJobSearch');
+  const query = ((_jobInput ? _jobInput.value : '') || '').toLowerCase();
   let jobs = clientJobs;
   if (jobFilter !== 'all') jobs = jobs.filter(j => j.status === jobFilter);
   if (query) jobs = jobs.filter(j => j.title.toLowerCase().includes(query) || j.desc.toLowerCase().includes(query));
@@ -1758,8 +1909,8 @@ function updateSubmissionBadge() {
 /* ===================== PROFILE ===================== */
 function loadProfile() {
   const saved = JSON.parse(localStorage.getItem(CK('profile')) || 'null');
-  const avatarSrc = saved?.avatar || avatarUrl(currentUser);
-  const displayName = saved?.company || userObj?.company || currentUser;
+  var avatarSrc = (saved && saved.avatar) ? saved.avatar : avatarUrl(currentUser);
+  var displayName = (saved && saved.company) ? saved.company : (userObj && userObj.company) ? userObj.company : currentUser;
 
   ['navAvatar','sidebarAvatar','profilePic'].forEach(id => {
     const el = document.getElementById(id);
@@ -1768,8 +1919,10 @@ function loadProfile() {
   setText('navUsername', displayName);
   setText('sidebarName', displayName);
   setText('displayName', displayName);
-  document.getElementById('displayIndustry').textContent = saved?.industry || userObj?.industry || 'Industry';
-  document.getElementById('displayAbout').textContent = saved?.about || 'No bio yet.';
+  var _dispInd = document.getElementById('displayIndustry');
+  if (_dispInd) _dispInd.textContent = (saved && saved.industry) ? saved.industry : (userObj && userObj.industry) ? userObj.industry : 'Industry';
+  var _dispAbout = document.getElementById('displayAbout');
+  if (_dispAbout) _dispAbout.textContent = (saved && saved.about) ? saved.about : 'No bio yet.';
 
   if (saved) {
     setVal('profileCompany', saved.company || '');
@@ -1831,7 +1984,7 @@ function syncWriterSubmissions() {
     const writerSubs = JSON.parse(localStorage.getItem(`ww_${w.username}_submissions`) || '[]');
     writerSubs.forEach(s => {
       // Match by jobId
-      if (myJobIds.includes(s.jobId?.toString())) {
+      if (myJobIds.includes(s.jobId ? s.jobId.toString() : '')) {
         const alreadyHave = clientSubmissions.find(cs => cs.id === s.id);
         if (!alreadyHave) {
           newSubs.push({ ...s, writerId: w.username, writerName: w.username });
@@ -1861,12 +2014,17 @@ document.getElementById('writerProfileModal').addEventListener('click', e => {
 /* ===================== NOTIFICATIONS ===================== */
 function addNotification(text) {
   const list = document.getElementById('notificationList');
-  if (list.querySelector('p')?.textContent === 'No notifications yet') list.innerHTML = '';
+  var _p = list.querySelector('p');
+  if (_p && _p.textContent === 'No notifications yet') list.innerHTML = '';
   const p = document.createElement('p');
   p.textContent = text;
   list.prepend(p);
   const c = parseInt(document.getElementById('notifCount').textContent) || 0;
-  setText('notifCount', c + 1);
+  const newCount = c + 1;
+  setText('notifCount', newCount);
+  // sync sidebar bell badge
+  const sb = document.getElementById('sidebarNotifBadge');
+  if (sb) sb.textContent = newCount;
 }
 function toggleNotifications() {
   const d = document.getElementById('notificationDropdown');
@@ -1877,6 +2035,9 @@ function toggleNotifications() {
 function clearNotifications() {
   setHtml('notificationList', '<p>No notifications yet</p>');
   setText('notifCount', '0');
+  // sync sidebar bell badge
+  const sb = document.getElementById('sidebarNotifBadge');
+  if (sb) sb.textContent = '0';
 }
 document.addEventListener('click', e => {
   if (!e.target.closest('.notif-wrap')) document.getElementById('notificationDropdown').style.display = 'none';
@@ -2100,7 +2261,7 @@ function openWriterProfile(username) {
   // Writer's submissions to this client
   const myJobIds  = clientJobs.map(j => j.id.toString());
   const writerSubs = JSON.parse(localStorage.getItem(`ww_${username}_submissions`) || '[]')
-                      .filter(s => myJobIds.includes(s.jobId?.toString()));
+                      .filter(function(s){ return myJobIds.includes(s.jobId ? s.jobId.toString() : ''); });
   // Earnings from THIS client only — sum the pay of approved+paid submissions for our jobs
   const earned = writerSubs
                    .filter(s => s.paid)
@@ -2161,7 +2322,7 @@ function openWriterProfile(username) {
   // Info grid
   const infoItems = [
     { key:'Username', val: username },
-    { key:'Member Since', val: writerUser.joinedAt || (writerSubs.length ? writerSubs[writerSubs.length-1]?.date : '—') || '—' },
+    { key:'Member Since', val: writerUser.joinedAt || (writerSubs.length ? (writerSubs[writerSubs.length-1] && writerSubs[writerSubs.length-1].date ? writerSubs[writerSubs.length-1].date : '—') : '—') || '—' },
     { key:'Jobs with You', val: writerSubs.length },
     { key:'Approval Rate', val: writerSubs.length ? Math.round((approved/writerSubs.length)*100) + '%' : '—' },
     { key:'Pending Review', val: pending },
@@ -2202,12 +2363,12 @@ function openWriterProfile(username) {
 /* ===================== ABOUT PAGE ===================== */
 function renderAbout() {
   const saved = JSON.parse(localStorage.getItem(CK('profile')) || 'null');
-  const name  = saved?.company || userObj?.company || currentUser;
-  const industry = saved?.industry || userObj?.industry || '—';
-  const bio   = saved?.about || '';
-  const email = saved?.email || '';
-  const site  = saved?.website || '';
-  const avatarSrc = saved?.avatar || avatarUrl(currentUser);
+  var name  = (saved && saved.company) ? saved.company : (userObj && userObj.company) ? userObj.company : currentUser;
+  var industry = (saved && saved.industry) ? saved.industry : (userObj && userObj.industry) ? userObj.industry : '—';
+  var bio   = (saved && saved.about) ? saved.about : ''; 
+  var email = (saved && saved.email) ? saved.email : ''; 
+  var site  = (saved && saved.website) ? saved.website : ''; 
+  var avatarSrc = (saved && saved.avatar) ? saved.avatar : avatarUrl(currentUser);
 
   // Avatar & name
   const aboutPic = document.getElementById('aboutPic');
@@ -2230,7 +2391,7 @@ function renderAbout() {
   const wallet = JSON.parse(localStorage.getItem(CK('wallet')) || 'null') || { balance: 0, transactions: [] };
   const debitTx = wallet.transactions.filter(t => t.type === 'debit');
   const totalPaid = debitTx.reduce((s, t) => s + (parseFloat(t.amount)||0), 0);
-  const uniqueWriters = new Set(debitTx.map(t => t.label?.replace('Payment to ',''))).size;
+  var uniqueWriters = new Set(debitTx.map(function(t){ return t.label ? t.label.replace('Payment to ','') : ''; })).size;
 
   countUp(document.getElementById('aboutStatJobs'),      clientJobs.length);
   countUp(document.getElementById('aboutStatOpen'),      clientJobs.filter(j => j.status === 'open').length);
@@ -2443,26 +2604,50 @@ document.addEventListener('click', function(e) {
 
 // ── MOBILE SIDEBAR TOGGLE ─────────────────────────────────────
 function initMobileSidebar() {
-  const sidebar = document.querySelector('.sidebar');
-  const ham = document.querySelector('.hamburger');
+  var sidebar = document.querySelector('.sidebar');
+  var ham = document.querySelector('.hamburger');
   if (!sidebar || !ham) return;
-  let overlay = document.querySelector('.sidebar-overlay');
+  var overlay = document.querySelector('.sidebar-overlay');
   if (!overlay) {
     overlay = document.createElement('div');
     overlay.className = 'sidebar-overlay';
     document.body.appendChild(overlay);
   }
-  ham.addEventListener('click', () => {
-    const open = sidebar.classList.toggle('open');
-    ham.classList.toggle('open', open);
-    overlay.classList.toggle('show', open);
-  });
-  overlay.addEventListener('click', () => {
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    ham.classList.add('open');
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+  }
+  function closeSidebar() {
     sidebar.classList.remove('open');
     ham.classList.remove('open');
     overlay.classList.remove('show');
+    document.body.style.overflow = '';
+    document.body.style.touchAction = '';
+  }
+  var _touched = false;
+  function toggleSidebar(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (sidebar.classList.contains('open')) { closeSidebar(); } else { openSidebar(); }
+  }
+
+  ham.addEventListener('touchend', function(e){
+    _touched = true;
+    toggleSidebar(e);
+    setTimeout(function(){ _touched = false; }, 400);
+  }, {passive: false});
+  ham.addEventListener('click', function(e){
+    if (_touched) return; // already handled by touchend
+    toggleSidebar(e);
   });
-}
+
+  overlay.addEventListener('touchend', function(e){ closeSidebar(); }, {passive: true});
+  overlay.addEventListener('click', closeSidebar);
+} 
 
 // ── AVATAR INITIALS FALLBACK ──────────────────────────────────
 function initAvatarFallbacks() {
@@ -2470,7 +2655,8 @@ function initAvatarFallbacks() {
     img.addEventListener('error', function() {
       if (this._fallbackDone) return;
       this._fallbackDone = true;
-      const name = (this.alt || document.getElementById('sidebarName')?.textContent || 'U').trim();
+      var sidebarNameEl = document.getElementById('sidebarName');
+      var name = (this.alt || (sidebarNameEl ? sidebarNameEl.textContent : '') || 'U').trim();
       const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase() || 'W';
       const wrap = this.parentElement;
       const div = document.createElement('div');
